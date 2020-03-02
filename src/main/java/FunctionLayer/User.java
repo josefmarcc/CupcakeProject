@@ -6,7 +6,9 @@ package FunctionLayer;
  */
 public class User {
 
-    public User( String email, String password, String role ) {
+
+
+    public User(String email, String password, String role ) {
         this.email = email;
         this.password = password;
         this.role = role;
@@ -48,5 +50,18 @@ public class User {
     public void setId( int id ) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
+
+
+
 
 }

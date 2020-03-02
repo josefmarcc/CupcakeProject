@@ -19,5 +19,29 @@
 
 
         You are now logged in as a EMPLOYEE of our wonderful site.
+
+
+
+        <form name="customerlist" action="FrontController" method="POST">
+            <input type="hidden" name="taget" value="customerList">
+            <input type="submit" value="Submit">
+        </form>
+
+
+
+        Other employees:
+        <c:forEach var="element" items="${sessionScope.customerlist}">
+
+            ${element}
+            <br>
+
+        </c:forEach>
+
+
+
+
+
+
+
     </body>
 </html>

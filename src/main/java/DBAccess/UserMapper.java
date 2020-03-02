@@ -2,11 +2,13 @@ package DBAccess;
 
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.User;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  The purpose of UserMapper is to...
@@ -55,5 +57,31 @@ public class UserMapper {
             throw new LoginSampleException(ex.getMessage());
         }
     }
+
+
+    public static ArrayList<User> getCustomerList() {
+        ArrayList<User> customerList = new ArrayList();
+        try {
+            Connection con = Connector.connection();
+            Statement stmt = con.createStatement();
+            String SQL = "SELECT * FROM useradmin.users WHERE role=\"customer\"";
+            ResultSet rs = stmt.executeQuery( SQL );
+
+            while (rs.next()) {
+                String role = rs.getString("role");
+                int id = rs.getInt("id");
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+                User user = new User(email, password, role);
+                customerList.add(user);
+            }
+        } catch ( ClassNotFoundException | SQLException ex ) {
+            System.out.println(ex);
+        }
+        return customerList;
+    }
+
+
+
 
 }

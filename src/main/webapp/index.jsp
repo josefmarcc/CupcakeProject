@@ -50,6 +50,25 @@
         </table>
 
 
+<br>
+<br>
+
+        <form name="customerlist" action="FrontController" method="POST">
+        <input type="hidden" name="taget" value="customerlist">
+        <input type="submit" value="Submit">
+        </form>
+<br>
+<br>
+
+        <c:forEach var="element" items="${sessionScope.customerlist}">
+
+            ${"element"}
+            <br>
+
+        </c:forEach>
+
+
+
 <%--        Bare lige se I har en ide om hvad vi forslå I ikke gør ! det hedder scpript lets --%>
 <%--        <% String error = (String) request.getAttribute( "error");--%>
 <%--           if ( error != null) { --%>
