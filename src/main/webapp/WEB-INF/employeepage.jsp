@@ -20,22 +20,47 @@
 
         You are now logged in as a EMPLOYEE of our wonderful site.
 
+        <br>
+        <br>
 
-
+<h1> tryk her for at komme ind på oversigt</h1>
         <form name="customerlist" action="FrontController" method="POST">
-            <input type="hidden" name="taget" value="customerList">
-            <input type="submit" value="Submit">
+            <input type="hidden" name="taget" value="customerlist">
+            <input type="submit" value="Tryk her for at gå til oversigt">
         </form>
 
+        Customer list:
+
+<br>
+<br>
 
 
-        Other employees:
         <c:forEach var="element" items="${sessionScope.customerlist}">
 
-            ${element}
+            ${element.toString()}
             <br>
 
         </c:forEach>
+
+
+        <td>Opret ny employee</td>
+        <td>
+            <form name="newemployee" action="FrontController" method="POST">
+                <input type="hidden" name="taget" value="newemployee">
+                Email:<br>
+                <input type="text" name="email" value="someone@nowhere.com">
+                <br>
+                Password:<br>
+                <input type="password" name="password1" value="sesam">
+                <br>
+                Retype Password:<br>
+                <input type="password" name="password2" value="sesam">
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </td>
+        </tr>
+
 
 
 

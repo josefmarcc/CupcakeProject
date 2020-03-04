@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: josef
@@ -17,8 +18,9 @@
 <br>
 
 Other employees:
-<c:forEach var="element" items="${applicationScope.UserMapper}">
+<c:forEach var="element" items="${sessionScope.customerlist}">
 
+    <br>
     ${element}
     <br>
 

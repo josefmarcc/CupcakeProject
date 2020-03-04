@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import static FunctionLayer.LogicFacade.customerList;
 
 public class CustomerList extends Command {
 
@@ -24,6 +27,7 @@ public class CustomerList extends Command {
 
         session.setAttribute("customerlist",customerList);
 
-        return customerList.toString() + "page";
+        return "oversigt";
     }
+
 }
