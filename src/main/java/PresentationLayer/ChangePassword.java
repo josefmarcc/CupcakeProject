@@ -7,23 +7,21 @@ import FunctionLayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 
-public class RemoveCustomer extends Command {
-
-
+public class ChangePassword extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
 
-        String s = LogicFacade.removeCustomer(request.getParameter("email"));
 
+        String email = request.getParameter( "email" );
+        String password = request.getParameter( "password" );
 
-        ArrayList<User> customerList = LogicFacade.customerList();
+        LogicFacade.changePassword( password, email);
 
         HttpSession session = request.getSession();
-        session.setAttribute("email",s);
-        session.setAttribute("customerlist",customerList);
+        session.setAttribute("email",email);
+        session.setAttribute("password",password);
 
         return "oversigt";
     }

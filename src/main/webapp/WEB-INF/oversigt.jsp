@@ -17,7 +17,7 @@
 <br>
 <br>
 
-Other employees:
+Customer list:
 <c:forEach var="element" items="${sessionScope.customerlist}">
 
     <br>
@@ -26,14 +26,41 @@ Other employees:
 
 </c:forEach>
 
-<td>Opret ny employee</td>
+<br>
+<br>
+
+
+<h1> Customer amount: ${sessionScope.antalKunder} </h1>
+
+<br>
+<br>
+
+<td>Remove customer</td>
 <td>
     <form name="removecustomer" action="FrontController" method="POST">
         <input type="hidden" name="taget" value="removecustomer">
         Email:<br>
         <input type="text" name="email" value="someone@nowhere.com">
         <br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Delete customer">
+    </form>
+</td>
+</tr>
+
+<br>
+<br>
+
+<td>Change password</td>
+<td>
+    <form name="changepassword" action="FrontController" method="POST">
+        <input type="hidden" name="taget" value="changepassword">
+        Email:<br>
+        <input type="text" name="email" value="someone@nowhere.com">
+        <br>
+        New password:<br>
+        <input type="text" name="password" value="someone@nowhere.com">
+        <br>
+        <input type="submit" value="Change password">
     </form>
 </td>
 </tr>

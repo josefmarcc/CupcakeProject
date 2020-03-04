@@ -33,8 +33,10 @@ public class LogicFacade {
     public static String removeCustomer(String email){
         UserMapper userMapper = new UserMapper();
         return userMapper.deleteMember(email);
+    }
 
-
+    public static void changePassword(String password, String email) throws LoginSampleException {
+        UserMapper.changePassword(password,email);
     }
 
 }

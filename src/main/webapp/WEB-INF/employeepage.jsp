@@ -29,18 +29,8 @@
             <input type="submit" value="Tryk her for at gå til oversigt">
         </form>
 
-        Customer list:
-
 <br>
 <br>
-
-
-        <c:forEach var="element" items="${sessionScope.customerlist}">
-
-            ${element.toString()}
-            <br>
-
-        </c:forEach>
 
 
         <td>Opret ny employee</td>
