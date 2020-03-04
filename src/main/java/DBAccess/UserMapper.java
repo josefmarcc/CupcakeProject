@@ -81,7 +81,19 @@ public class UserMapper {
         return customerList;
     }
 
+    public String deleteMember(String email){
+        try {
+            String SQL = "DELETE FROM useradmin.users WHERE email = (?)";
+            Connection con = Connector.connection();
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1,email);
+            ps.execute();
+            ps.close();
 
 
-
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println("FEJL! Kunne ikke fjerne medlem.");
+        }
+        return email;
+    }
 }

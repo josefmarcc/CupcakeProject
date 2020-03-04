@@ -26,6 +26,20 @@ Other employees:
 
 </c:forEach>
 
+<td>Opret ny employee</td>
+<td>
+    <form name="removecustomer" action="FrontController" method="POST">
+        <input type="hidden" name="taget" value="removecustomer">
+        Email:<br>
+        <input type="text" name="email" value="someone@nowhere.com">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</td>
+</tr>
+
+
+
 
 
 </body>

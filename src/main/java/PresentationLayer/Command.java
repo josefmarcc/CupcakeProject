@@ -2,6 +2,7 @@ package PresentationLayer;
 
 import FunctionLayer.LoginSampleException;
 import java.util.HashMap;
+import javax.ejb.Remove;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,6 +15,7 @@ abstract class Command {
         commands.put( "login", new Login() );
         commands.put( "register", new Register() );
         commands.put("newemployee", new NewEmployee());
+        commands.put("removecustomer", new RemoveCustomer());
         commands.put("customerlist", new CustomerList());
     }
 

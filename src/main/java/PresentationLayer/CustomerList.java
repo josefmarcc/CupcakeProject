@@ -21,11 +21,14 @@ public class CustomerList extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
+
         ArrayList<User> customerList = LogicFacade.customerList();
 
+        int antalKunder = customerList.size();
         HttpSession session = request.getSession();
 
         session.setAttribute("customerlist",customerList);
+        session.setAttribute("antalKunder", antalKunder);
 
         return "oversigt";
     }

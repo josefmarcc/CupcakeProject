@@ -30,4 +30,11 @@ public class LogicFacade {
         return UserMapper.getCustomerList();
     }
 
+    public static String removeCustomer(String email){
+        UserMapper userMapper = new UserMapper();
+        return userMapper.deleteMember(email);
+
+
+    }
+
 }
