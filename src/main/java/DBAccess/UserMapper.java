@@ -81,7 +81,7 @@ public class UserMapper {
         return customerList;
     }
 
-    public String deleteMember(String email) {
+    public static void deleteMember(String email) {
         try {
             String SQL = "DELETE FROM useradmin.users WHERE email = (?)";
             Connection con = Connector.connection();
@@ -94,7 +94,6 @@ public class UserMapper {
         } catch (SQLException | ClassNotFoundException ex) {
             System.out.println("FEJL! Kunne ikke fjerne medlem.");
         }
-        return email;
     }
 
     public static void changePassword(String password, String email) throws LoginSampleException {
@@ -112,6 +111,8 @@ public class UserMapper {
             e.printStackTrace();
         }
     }
+
+
 }
 
 

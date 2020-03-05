@@ -51,6 +51,18 @@
         </td>
         </tr>
 
+    <br>
+    <br>
+
+        td>Logout</td>
+        <td>
+            <form name="logout" action="FrontController" method="POST">
+                <input type="hidden" name="taget" value="logout">
+                <input type="submit" value="logout">
+            </form>
+        </td>
+        </tr>
+
 
 
 

@@ -30,13 +30,13 @@ public class LogicFacade {
         return UserMapper.getCustomerList();
     }
 
-    public static String removeCustomer(String email){
-        UserMapper userMapper = new UserMapper();
-        return userMapper.deleteMember(email);
+    public static void removeCustomer(String email){
+        UserMapper.deleteMember(email);
     }
 
     public static void changePassword(String password, String email) throws LoginSampleException {
         UserMapper.changePassword(password,email);
     }
+
 
 }
