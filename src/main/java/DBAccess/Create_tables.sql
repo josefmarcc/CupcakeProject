@@ -1,9 +1,4 @@
--- noinspection SqlDialectInspectionForFile
-
--- noinspection SqlNoDataSourceInspectionForFile
-
 DROP SCHEMA IF EXISTS `cupcake`;
-
 CREATE SCHEMA IF NOT EXISTS`cupcake`;
 USE `cupcake`;
 
@@ -49,15 +44,3 @@ CREATE TABLE `ordertails`(
     `total` int,
     FOREIGN KEY (email) REFERENCES Users(email)
 );
-
-
-
-INSERT INTO cupcake.topping VALUES
-("orange", 20),
-("blue", 25),
-("cool", 12);
-
-INSERT INTO cupcake.bottom VALUES
-("test", 20),
-("noget", 20),
-("data", 12);
