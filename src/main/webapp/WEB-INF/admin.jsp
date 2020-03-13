@@ -62,7 +62,6 @@
                     <table class="table table-borderless table.responsive">
                         <thead>
                         <tr>
-                            <th scope="col">Ordre</th>
                             <th scope="col">Topping</th>
                             <th scope="col">Bund</th>
                             <th scope="col">Email</th>
@@ -72,13 +71,7 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1">1</label>
-                                </div>
                                 <!-- https://www.codejava.net/java-ee/jsp/how-to-list-records-in-a-database-table-using-jsp-and-jstl -->
-                            </td>
                             <c:forEach var="order" items="${requestScope.orderlist}">
                         <tr>
                             <td><c:out value="${order.topping}"/></td>

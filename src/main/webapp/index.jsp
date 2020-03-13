@@ -50,21 +50,14 @@
             </li>
 
             <li class="nav-item">
-                <input type="hidden" name="taget" value="orderlist"/>
-                <a class="nav-link mt-1" action="FrontController" method="post" input type="submit" value="Admin">
+                <form name="admin" action="FrontController" method="POST">
+                    <input type="hidden" name="taget" value="orderlist">
+                    <input type="submit" class="navbarButton" value="ADMIN"/>
+                </form>
             </li>
 
         </ul>
     </nav>
-
-// DEN HER VIRKER:
-    <form name="admin" action="FrontController" method="POST">
-        <input type="hidden" name="taget" value="orderlist">
-        <br>
-        <input type="submit" value="admin">
-    </form>
-
-
 
     <div class="row">
         <div class="col-lg-1"></div>
