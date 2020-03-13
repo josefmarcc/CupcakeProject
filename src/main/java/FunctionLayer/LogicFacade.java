@@ -5,6 +5,7 @@ import DBAccess.ProductMapper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * The purpose of LogicFacade is to...
@@ -33,6 +34,14 @@ public class LogicFacade {
 
     public static void changePassword(String password, String email) throws LoginSampleException {
         UserMapper.changePassword(password, email);
+    }
+
+    public static List<Topping> getToppings(){
+        return ProductMapper.getTops();
+    }
+
+    public static List<Bottom> getBottoms(){
+        return ProductMapper.getBottoms();
     }
 
 

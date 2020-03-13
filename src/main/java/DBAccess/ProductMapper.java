@@ -10,11 +10,11 @@ import java.util.List;
 public class ProductMapper {
 
 
-    public Cupcake makeCupcake(Topping top, Bottom bot) {
+    public static Cupcake makeCupcake(Topping top, Bottom bot) {
         return new Cupcake(top, bot);
     }
 
-    public Topping getTop(String name) {
+    public static Topping getTop(String name) {
         if (name != null) {
             int price = getToppingPrice(name);
             Topping top = new Topping(name, price);
@@ -23,7 +23,7 @@ public class ProductMapper {
         return null;
     }
 
-    public Bottom getBottom(String name) {
+    public static Bottom getBottom(String name) {
         if (name != null) {
             int price = getBottomPrice(name);
             Bottom bot = new Bottom(name, price);
@@ -33,7 +33,7 @@ public class ProductMapper {
     }
 
 
-    public List<Topping> getTops() {
+    public static List<Topping> getTops() {
         List<Topping> toppings = new ArrayList<>();
         try {
             Connection con = Connector.connection();
@@ -53,7 +53,7 @@ public class ProductMapper {
         return toppings;
     }
 
-    public List<Bottom> getBottoms() {
+    public static List<Bottom> getBottoms() {
         List<Bottom> bottoms = new ArrayList<>();
         try {
             Connection con = Connector.connection();
@@ -72,7 +72,7 @@ public class ProductMapper {
         return bottoms;
     }
 
-    public int getToppingPrice(String name) {
+    public static int getToppingPrice(String name) {
         try {
             Connection con = Connector.connection();
             Statement stmt = con.createStatement();
@@ -92,7 +92,7 @@ public class ProductMapper {
     }
 
 
-    public int getBottomPrice(String name) {
+    public static int getBottomPrice(String name) {
         try {
             Connection con = Connector.connection();
             Statement stmt = con.createStatement();

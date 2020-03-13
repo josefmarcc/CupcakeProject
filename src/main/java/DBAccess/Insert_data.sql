@@ -1,4 +1,4 @@
-USE `cupcakes`;
+USE `cupcake`;
 
 -- Inserts Bottoms --
 INSERT INTO `bottom`(`bname`, `bPrice`) VALUES('Chokolade', 5.00);
