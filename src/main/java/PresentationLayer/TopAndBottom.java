@@ -10,11 +10,11 @@ import java.util.ArrayList;
 public class TopAndBottom extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
-        ArrayList<String> toppings = ProductMapper.getToppings();
-        ArrayList<String> bottoms = ProductMapper.getBottoms();
+       // ArrayList<Topping> toppings = ProductMapper.getToppings();
+        //ArrayList<Bottom> bottoms = ProductMapper.getBottoms();
 
-        request.setAttribute("toppings",toppings);
-        request.setAttribute("bottoms",bottoms);
+        //request.setAttribute("toppings",toppings);
+        //request.setAttribute("bottoms",bottoms);
 
 
         return "index";

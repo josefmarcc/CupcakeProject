@@ -64,14 +64,16 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             Statement stmt = con.createStatement();
-            String SQL = "SELECT * FROM cupcake.users";
+            String SQL = "SELECT * FROM cupcake.ordertails";
             ResultSet rs = stmt.executeQuery(SQL);
 
             while (rs.next()) {
                 String topping = rs.getString("topping");
-                String button = rs.getString("button");
+                String buttom = rs.getString("buttom");
                 String email = rs.getString("email");
-                Order order = new Order(topping, button, email);
+                int total = rs.getInt("total");
+                int qty = rs.getInt("qty");
+                Order order = new Order(topping, buttom, email, total, qty);
                 orderList.add(order);
             }
         } catch (ClassNotFoundException | SQLException ex) {

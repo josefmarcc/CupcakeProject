@@ -50,8 +50,6 @@
                 <a class="nav-link mt-1" href="#">KURV</a>
             </li>
 
-
-
         </ul>
     </nav>
 
@@ -68,6 +66,8 @@
                             <th scope="col">Topping</th>
                             <th scope="col">Bund</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Antal</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -81,9 +81,11 @@
                             </td>
                             <c:forEach var="order" items="${requestScope.orderlist}">
                         <tr>
-                            <td><c:out value="${order.topping}" /></td>
+                            <td>${order.topping}</td>
                             <td><c:out value="${order.buttom}" /></td>
                             <td><c:out value="${order.email}" /></td>
+                            <td><c:out value="${order.total}" /></td>
+                            <td><c:out value="${order.qty}" /></td>
                         </tr>
                         </c:forEach>
                         </tr>

@@ -21,9 +21,7 @@ public class OrderList extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
         ArrayList<Order> orderlist = LogicFacade.getOrderList();
-        HttpSession session = request.getSession();
-
-        session.setAttribute("orderlist",orderlist);
+        request.setAttribute("orderlist",orderlist);
 
         return "admin";
     }

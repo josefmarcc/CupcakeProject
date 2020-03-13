@@ -49,7 +49,9 @@
                 <a class="nav-link mt-1" href="#">KURV</a>
             </li>
 
-
+            <li class="nav-item">
+                <a class="nav-link mt-1" href="admin.jsp">Adminside</a>
+            </li>
 
         </ul>
     </nav>
@@ -60,20 +62,6 @@
             <div class="overskrift-size ml-5 mb-3">
                 Lav din cupcake:
             </div>
-
-            <form action="list" method="post">
-                <select name="category">
-                    <c:forEach items="${listCategory}" var="category">
-                        <option value="${category.id}">${category.name}</option>
-                    </c:forEach>
-                </select>
-                <br/><br/>
-                <input type="submit" value="Submit" />
-            </form>
-
-
-
-
 
             <div class="dropdown mt-2 ml-5">
                 <a class="btn btn-danger dropdown-toggle mb-2" href="#" role="button" id="dropdownMenuLink1"
@@ -128,6 +116,8 @@
         </div>
         <div class="col-lg-1"></div>
     </div>
+
+
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
