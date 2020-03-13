@@ -1,0 +1,52 @@
+:root{
+    --primary-color: #f1324d;
+    --secondary-color: #f9e6b2 ;
+    --third-color: #FCB0B3 ;
+    --text-color: #00000;
+}
+
+body{
+    background-color: var(--secondary-color);
+}
+
+.table-wrap {
+    min-height: 150%;
+    width: 150%;
+    overflow-y: auto;
+    border-style: solid;
+    border-color: var(--primary-color);
+    background-color: var(--third-color);
+}
+
+td, th{
+    color: var(--primary-color);
+}
+
+.navbar{
+    background-color: var(--primary-color);
+}
+a, li{
+    color: var(--secondary-color)
+}
+
+.btn-style{
+    background-color: var(--primary-color);
+    width: 45%;
+
+}
+
+.overskrift-size{
+    font-size: 1.5em;
+}
+
+.dropdown-toggle{
+    width: 45%;
+    padding: 12px 16px;
+
+}
+
+.mydropdown{
+
+}
+
+

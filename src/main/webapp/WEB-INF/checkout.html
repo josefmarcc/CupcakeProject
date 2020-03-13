@@ -1,18 +1,15 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Link til vores CSS -->
     <link rel="stylesheet" href="styles.css">
 
-    <title>Cupcake admin</title>
+    <title>Cupcake Checkout</title>
 </head>
 <body>
 <div class="container col-lg-12">
@@ -20,7 +17,7 @@
     <img src="hæv2.png" class="img-fluid"/>
 
     <nav class="navbar-expand-lg navbar">
-        <a class="navbar-brand" href="#">Olesker Cupcakes management</a>
+        <a class="navbar-brand" href="#">Olsker Cupcakes</a>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item ">
                 <a class="nav-link" href="#">LOGIN</a>
@@ -31,19 +28,20 @@
         </ul>
     </nav>
 
-    <h1 class="text-center mb-4 mt-4"> Administrator side </h1>
+    <h1 class="text-center mb-4 mt-4"> Din kurv </h1>
+
     <div class="container">
         <div class="row">
-            <div class="col-1" ></div>
-            <div class="col-4" >
+            <div class="col-2" ></div>
+            <div class="col-3" >
                 <div class="table-wrap">
                     <table class="table table-borderless table.responsive">
                         <thead>
                         <tr>
-                            <th scope="col">Ordre</th>
+                            <th scope="col">Antal</th>
                             <th scope="col">Topping</th>
                             <th scope="col">Bund</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">Pris</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -53,48 +51,54 @@
                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
                                     <label class="custom-control-label" for="customCheck1">1</label>
                                 </div>
-                                <!-- https://www.codejava.net/java-ee/jsp/how-to-list-records-in-a-database-table-using-jsp-and-jstl -->
                             </td>
-                            <c:forEach var="order" items="${requestScope.orders}">
+                            <td>Blåbær</td>
+                            <td>Mandel</td>
+                            <td>12 kr,- stk.</td>
+                        </tr>
                         <tr>
-                            <td><c:out value="${order.topping}" /></td>
-                            <td><c:out value="${order.buttom}" /></td>
-                            <td><c:out value="${order.email}" /></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                    <label class="custom-control-label" for="customCheck2">3</label>
+                                </div>
+                            </td>
+                            <td>Jordbær</td>
+                            <td>Chokolade</td>
+                            <td>11kr,- stk.</td>
                         </tr>
-                        </c:forEach>
+                        <tr>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                    <label class="custom-control-label" for="customCheck1">2</label>
+                                </div>
+                            </td>
+                            <td>Chokolade</td>
+                            <td>Vanilje</td>
+                            <td>10kr,- stk.</td>
                         </tr>
+
                         </tbody>
                     </table>
                 </div>
-                <button type="button" class="btn btn-danger btn-style mt-2">
-                    Slet ordre
+
+                <button type="button" class="btn btn-outline-danger mt-2">
+                    Slet valgte
                 </button>
+
             </div>
             <div class="col-2" ></div>
-            <div class="col-5" >
-                <form action="FrontController" method="post">
-                    <input type="hidden" name="taget" value="opdatersaldo"/>
-                    <div class="form-row">
-                        <div class="col-5">
-                            <input type="text" name="saldo" class="form-control" placeholder="Indsæt saldo">
-                        </div>
-                        <div class="col-5">
-                            <input type="text" name="brugernavn" class="form-control" placeholder="Brugernavn">
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-danger btn-style mt-4">
-                        Opdater saldo
-                    </button>
-                </form>
-
-
-
+            <div class="col-lg-3">
+                <div class="overskrift-size">
+                    Total pris:
+                </div>
+                <p><span class="price"><b>65 kr,-</b></span></p>
+                <button type="button" class="btn btn-danger btn-style mt-2">Betal</button>
             </div>
-        </div> <!-- row -->
-
+            <div class="col-lg-1"></div>
+        </div>
     </div>
-
-
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
