@@ -2,53 +2,46 @@ package FunctionLayer;
 
 public class Cupcake {
 
-    private String top;
-    private String bottom;
-    private int price;
-    private int qty;
+    private Topping top;
+    private Bottom bottom;
+    private int totalPrice;
 
 
-    public Cupcake(String top, String bottom, int price) {
+    public Cupcake(Topping top, Bottom bottom) {
         this.top = top;
         this.bottom = bottom;
-        this.price = price;
+        this.totalPrice = top.getPrice() + bottom.getPrice();
     }
+
+
+    public Topping getTop() {
+        return top;
+    }
+
+    public void setTop(Topping top) {
+        this.top = top;
+    }
+
+    public Bottom getBottom() {
+        return bottom;
+    }
+
+    public void setBottom(Bottom bottom) {
+        this.bottom = bottom;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
 
     public Cupcake() {
     }
 
-    public String getTop() {
-        return top;
-    }
-
-    public void setTop(String top) {
-        this.top = top;
-    }
-
-    public String getBottom() {
-        return bottom;
-    }
-
-    public void setBottom(String bottom) {
-        this.bottom = bottom;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public int getQty() {
-        return qty;
-    }
-
-    public void setQty(int qty) {
-        this.qty = qty;
-    }
 
 
     @Override
@@ -56,8 +49,7 @@ public class Cupcake {
         return "Cupcake{" +
                 " top: " + top +
                 " bottom: " + bottom +
-                " price: " + price +
-                " qty: " + qty;
+                " price: " + totalPrice;
     }
 
 

@@ -19,6 +19,13 @@ import java.util.ArrayList;
 public class UserMapper {
 
 
+    private int id;
+    private String name;
+    private String email;
+    private String password;
+    private int balance;
+
+
     public static void createUser(User user) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
