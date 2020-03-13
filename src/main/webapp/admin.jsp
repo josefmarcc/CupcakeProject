@@ -82,11 +82,11 @@
                             </td>
                             <c:forEach var="order" items="${requestScope.orderlist}">
                         <tr>
-                            <td>${order.topping}</td>
-                            <td>${order.bottom}</td>
-                            <td>${order.email}</td>
-                            <td>${order.total}</td>
-                            <td>${order.qty}</td>
+                            <td><c:out value="${order.topping}"/></td>
+                            <td><c:out value="${order.bottom}"/></td>
+                            <td><c:out value="${order.email}"/></td>
+                            <td><c:out value="${order.total}"/></td>
+                            <td><c:out value="${order.qty}"/></td>
                         </tr>
                         </c:forEach>
                         </tr>

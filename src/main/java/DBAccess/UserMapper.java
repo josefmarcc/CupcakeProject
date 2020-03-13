@@ -77,10 +77,10 @@ public class UserMapper {
             while (rs.next()) {
                 String email = rs.getString("email");
                 String topping = rs.getString("tname");
-                String buttom = rs.getString("bname");
+                String bottom = rs.getString("bname");
                 int qty = rs.getInt("qty");
                 int total = rs.getInt("total");
-                Order order = new Order(topping, buttom, email, total, qty);
+                Order order = new Order(topping, bottom, email, total, qty);
                 orderList.add(order);
             }
         } catch (ClassNotFoundException | SQLException ex) {
