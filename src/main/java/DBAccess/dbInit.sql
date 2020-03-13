@@ -2,25 +2,62 @@
 
 -- noinspection SqlNoDataSourceInspectionForFile
 
-CREATE DATABASE  IF NOT EXISTS `useradmin`;
+DROP SCHEMA IF EXISTS `cupcake`;
+
+CREATE SCHEMA IF NOT EXISTS`cupcake`;
+USE `cupcake`;
+
+DROP TABLE IF EXISTS `cupcake`.`ordertails`;
+DROP TABLE IF EXISTS `cupcake`.`topping`;
+DROP TABLE IF EXISTS `cupcake`.`bottom`;
+DROP TABLE IF EXISTS `cupcake`.`users`;
+
+CREATE TABLE `users`(
+`name` VARCHAR(55),
+`email` VARCHAR(200),
+`password` VARCHAR(60),
+`balance` INT,
+
+PRIMARY KEY (`email`)
+);
+
+CREATE TABLE `bottom`(
+`bname` VARCHAR(25),
+`bPrice` INT(25),
+PRIMARY KEY (`bname`)
+);
+
+CREATE TABLE `topping`(
+`tname` VARCHAR(25),
+`tPrice` INT(25),
+PRIMARY KEY (`tname`)
+);
+
+-- CREATE TABLE `invoices`(
+	-- `email` VARCHAR(45),
+    -- `id` INT,
+    -- `date` DATETIME NOT NULL DEFAULT current_timestamp,
+   --  `total` int,
+-- 	FOREIGN KEY (email) REFERENCES Users(email)
+-- );
+
+CREATE TABLE `ordertails`(
+	`email` VARCHAR(45),
+    `tname` VARCHAR(45),
+    `bname` VARCHAR(45),
+    `qty` int,
+    `total` int,
+    FOREIGN KEY (email) REFERENCES Users(email)
+);
 
 
-USE `useradmin`;
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(90) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `role` varchar(20) NOT NULL DEFAULT 'customer',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+INSERT INTO cupcake.topping VALUES
+("orange", 20),
+("blue", 25),
+("cool", 12);
 
-LOCK TABLES `users` WRITE;
-INSERT INTO `users` VALUES 
-(1,'jens@somewhere.com','jensen','customer'),
-(2,'ken@somewhere.com','kensen','customer'),
-(3,'robin@somewhere.com','batman','employee');
-UNLOCK TABLES;
-
+INSERT INTO cupcake.bottom VALUES
+("test", 20),
+("noget", 20),
+("data", 12);
