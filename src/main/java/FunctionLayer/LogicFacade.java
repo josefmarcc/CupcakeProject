@@ -35,30 +35,5 @@ public class LogicFacade {
         UserMapper.changePassword(password, email);
     }
 
-    // kald først getTopping og get bottom og så lav cupcake
-    public static Cupcake makeCupcake(String top, String bottom) {
-        HashMap<String, Integer> getToppings = ProductMapper.getToppings();
-        HashMap<String, Integer> getBottoms = ProductMapper.getBottoms();
-
-        Cupcake cupcake = new Cupcake();
-
-        if (getToppings.containsKey(top) && getBottoms.containsKey(bottom)) {
-            cupcake = ProductMapper.makeCupcake(top,bottom);
-        }
-        return cupcake;
-
-    }
-
-    public static void main(String[] args) {
-
-        Cupcake cupcake = LogicFacade.makeCupcake("cool", "test");
-
-        System.out.println(cupcake.toString());
-        System.out.println(cupcake.getTop());
-        System.out.println(cupcake.getBottom());
-        System.out.println(cupcake.getPrice());
-    }
-
-
 
 }

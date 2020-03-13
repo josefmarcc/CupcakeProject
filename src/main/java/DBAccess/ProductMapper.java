@@ -1,93 +1,117 @@
 package DBAccess;
 
-import FunctionLayer.Cupcake;
-import FunctionLayer.LoginSampleException;
-import FunctionLayer.User;
+import FunctionLayer.*;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ProductMapper {
 
 
+    public Cupcake makeCupcake(Topping top, Bottom bot) {
+        return new Cupcake(top, bot);
+    }
 
-
-
-    public static void makeOrder(Cupcake cupcake, User user) throws LoginSampleException {
-        try {
-            Connection con = Connector.connection();
-            String SQL = "INSERT INTO cupcake.ordertails (email, tname, bname, qty, total) VALUES (?,?,?,?)";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-
-            ps.setString(1,user.getEmail());
-            ps.setString(2, cupcake.getTop());
-            ps.setString(3, cupcake.getBottom());
-            ps.setInt(4, cupcake.getQty());
-            ps.setInt(4, cupcake.getPrice());
-            ps.executeUpdate();
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new LoginSampleException(ex.getMessage());
+    public Topping getTop(String name) {
+        if (name != null) {
+            int price = getToppingPrice(name);
+            Topping top = new Topping(name, price);
+            return top;
         }
+        return null;
+    }
+
+    public Bottom getBottom(String name) {
+        if (name != null) {
+            int price = getBottomPrice(name);
+            Bottom bot = new Bottom(name, price);
+            return bot;
+        }
+        return null;
     }
 
 
-    public static Cupcake makeCupcake(String top, String bottom) {
-        Cupcake cupcake = new Cupcake();
-        try {
-            Connection con = Connector.connection();
-            Statement stmt = con.createStatement();
-            String SQL = "SELECT * FROM cupcake.topping, cupcake.bottom";
-            ResultSet rs = stmt.executeQuery(SQL);
-            while(rs.next()) {
-                top = rs.getString("tname");
-                bottom = rs.getString("bname");
-                int price = rs.getInt("tPrice") + rs.getInt("bPrice");
-                cupcake = new Cupcake(top, bottom, price);
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            System.out.println(ex);
-        }
-        return cupcake;
-    }
-
-
-    public static HashMap<String, Integer> getToppings() {
-        HashMap<String, Integer> toppings = new HashMap<>();
+    public List<Topping> getTops() {
+        List<Topping> toppings = new ArrayList<>();
         try {
             Connection con = Connector.connection();
             Statement stmt = con.createStatement();
             String SQL = "SELECT * FROM cupcake.topping";
             ResultSet rs = stmt.executeQuery(SQL);
-            while(rs.next()) {
-                String top = rs.getString("tname");
+
+            while (rs.next()) {
+                String name = rs.getString("tname");
                 int price = rs.getInt("tPrice");
-                toppings.put(top,price);
+                Topping top = new Topping(name, price);
+                toppings.add(top);
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             System.out.println(ex);
         }
         return toppings;
     }
 
-
-    public static HashMap<String, Integer> getBottoms() {
-        HashMap<String, Integer> bottoms = new HashMap<>();
+    public List<Bottom> getBottoms() {
+        List<Bottom> bottoms = new ArrayList<>();
         try {
             Connection con = Connector.connection();
             Statement stmt = con.createStatement();
             String SQL = "SELECT * FROM cupcake.bottom";
             ResultSet rs = stmt.executeQuery(SQL);
-            while(rs.next()) {
-                String bottom= rs.getString("bname");
+            while (rs.next()) {
+                String name = rs.getString("bname");
                 int price = rs.getInt("bPrice");
-                bottoms.put(bottom,price);
+                Bottom bottom = new Bottom(name, price);
+                bottoms.add(bottom);
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             System.out.println(ex);
         }
         return bottoms;
     }
+
+    public int getToppingPrice(String name) {
+        try {
+            Connection con = Connector.connection();
+            Statement stmt = con.createStatement();
+            String SQL = "SELECT tPrice FROM cupcake.topping + WHERE cupcake.topping.tname = " + name + ";";
+            ResultSet rs = stmt.executeQuery(SQL);
+
+            int price = 0;
+
+            while (rs.next()) {
+                price = rs.getInt("tPrice");
+            }
+            return price;
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex);
+        }
+        return 0;
+    }
+
+
+    public int getBottomPrice(String name) {
+        try {
+            Connection con = Connector.connection();
+            Statement stmt = con.createStatement();
+            String SQL = "SELECT bPrice FROM cupcake.bottom + WHERE cupcake.bottom.bname = " + name + ";";
+            ResultSet rs = stmt.executeQuery(SQL);
+
+            int price = 0;
+
+            while (rs.next()) {
+                price = rs.getInt("bPrice");
+            }
+            return price;
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex);
+        }
+        return 0;
+    }
+
+
 
 
 }

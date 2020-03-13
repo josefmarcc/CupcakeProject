@@ -9,7 +9,10 @@
         <module name="Projektskabelon-master" />
         <module name="Projektskabelon" />
         <module name="ProjektSkabelon-master" />
+<<<<<<< Updated upstream
         <module name="CupcakeProject" />
+=======
+>>>>>>> Stashed changes
         <module name="prejektSkabelon" />
       </profile>
     </annotationProcessing>
