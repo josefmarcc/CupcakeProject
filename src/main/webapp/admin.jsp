@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.sql.*,java.util.*"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -27,7 +28,7 @@
                 <a data-toggle="dropdown" class="nav-link dropdown-toggle  " href="#">LOGIN</a>
                 <ul class="dropdown-menu form-wrapper dropdown-menu-right mydropdown">
                     <li>
-                        <form action="frontcontroller" method="post">
+                        <form action="FrontController" method="post">
                             <div class="form-group ml-2 mr-2">
                                 <input type="text" class="form-control" placeholder="Brugernavn" required="required">
                             </div>
@@ -82,10 +83,10 @@
                             <c:forEach var="order" items="${requestScope.orderlist}">
                         <tr>
                             <td>${order.topping}</td>
-                            <td><c:out value="${order.buttom}" /></td>
-                            <td><c:out value="${order.email}" /></td>
-                            <td><c:out value="${order.total}" /></td>
-                            <td><c:out value="${order.qty}" /></td>
+                            <td>${order.bottom}</td>
+                            <td>${order.email}</td>
+                            <td>${order.total}</td>
+                            <td>${order.qty}</td>
                         </tr>
                         </c:forEach>
                         </tr>

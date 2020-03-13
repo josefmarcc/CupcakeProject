@@ -75,11 +75,11 @@ public class UserMapper {
             ResultSet rs = stmt.executeQuery(SQL);
 
             while (rs.next()) {
-                String topping = rs.getString("topping");
-                String buttom = rs.getString("buttom");
                 String email = rs.getString("email");
-                int total = rs.getInt("total");
+                String topping = rs.getString("tname");
+                String buttom = rs.getString("bname");
                 int qty = rs.getInt("qty");
+                int total = rs.getInt("total");
                 Order order = new Order(topping, buttom, email, total, qty);
                 orderList.add(order);
             }
