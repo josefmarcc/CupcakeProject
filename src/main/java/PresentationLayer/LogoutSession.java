@@ -14,6 +14,6 @@ public class LogoutSession extends Command {
 
         HttpSession session = request.getSession();
         session.invalidate();
-        return "../index.jsp";
+        return "../login.jsp";
     }
 }

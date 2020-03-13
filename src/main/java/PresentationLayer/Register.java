@@ -22,7 +22,7 @@ public class Register extends Command {
             session.setAttribute("email",email);
             session.setAttribute("name", name);
             session.setAttribute( "user", user );
-            return "../index.jsp";
+            return "../login.jsp";
         } else {
             throw new LoginSampleException( "the two passwords did not match" );
         }

@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Link til vores CSS -->
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
 
     <title>Cupcake Checkout</title>
 </head>
 <body>
 <div class="container col-lg-12">
 
-    <img src="../images/hæv2.png" class="img-fluid"/>
+    <img src="images/header.png" class="img-fluid"/>
 
     <nav class="navbar-expand-lg navbar">
         <a class="navbar-brand" href="#">Olesker Cupcakes</a>

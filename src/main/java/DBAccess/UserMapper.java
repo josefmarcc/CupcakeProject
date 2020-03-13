@@ -1,6 +1,7 @@
 package DBAccess;
 
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Order;
 import FunctionLayer.User;
 
 import java.sql.Connection;
@@ -58,8 +59,8 @@ public class UserMapper {
     }
 
 
-    public static ArrayList<User> getCustomerList() {
-        ArrayList<User> customerList = new ArrayList();
+    public static ArrayList<Order> getOrderList() {
+        ArrayList<Order> orderList = new ArrayList();
         try {
             Connection con = Connector.connection();
             Statement stmt = con.createStatement();
@@ -67,16 +68,16 @@ public class UserMapper {
             ResultSet rs = stmt.executeQuery(SQL);
 
             while (rs.next()) {
-                String name = rs.getString("name");
+                String topping = rs.getString("topping");
+                String button = rs.getString("button");
                 String email = rs.getString("email");
-                String password = rs.getString("password");
-                User user = new User( name, email, password);
-                customerList.add(user);
+                Order order = new Order(topping, button, email);
+                orderList.add(order);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println(ex);
         }
-        return customerList;
+        return orderList;
     }
 
     public static void deleteMember(String email) {

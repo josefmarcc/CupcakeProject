@@ -3,6 +3,7 @@ package PresentationLayer;
 import DBAccess.UserMapper;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Order;
 import FunctionLayer.User;
 
 import javax.servlet.ServletContext;
@@ -13,23 +14,18 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static FunctionLayer.LogicFacade.customerList;
 
 public class OrderList extends Command {
-
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-
-        ArrayList<User> customerList = LogicFacade.customerList();
-        int customerAmount = customerList.size();
+        ArrayList<Order> orderlist = LogicFacade.getOrderList();
         HttpSession session = request.getSession();
 
-        session.setAttribute("customerlist",customerList);
-        session.setAttribute("customerAmount", customerAmount);
+        session.setAttribute("orderlist",orderlist);
 
-        return "index";
+        return "admin";
     }
 
 }

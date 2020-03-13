@@ -23,8 +23,8 @@ public class LogicFacade {
         return user;
     }
 
-    public static ArrayList<User> customerList() {
-        return UserMapper.getCustomerList();
+    public static ArrayList<Order> getOrderList() {
+        return UserMapper.getOrderList();
     }
 
     public static void removeCustomer(String email) {
