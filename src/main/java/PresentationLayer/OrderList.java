@@ -15,7 +15,7 @@ import java.util.HashMap;
 
 import static FunctionLayer.LogicFacade.customerList;
 
-public class CustomerList extends Command {
+public class OrderList extends Command {
 
 
     @Override
@@ -29,7 +29,7 @@ public class CustomerList extends Command {
         session.setAttribute("customerlist",customerList);
         session.setAttribute("customerAmount", customerAmount);
 
-        return "oversigt";
+        return "index";
     }
 
 }

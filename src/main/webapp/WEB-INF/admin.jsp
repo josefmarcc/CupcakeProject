@@ -10,24 +10,48 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Link til vores CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles/styles.css">
 
     <title>Cupcake admin</title>
 </head>
 <body>
 <div class="container col-lg-12">
 
-    <img src="hæv2.png" class="img-fluid"/>
+    <img src="../images/hæv2.png" class="img-fluid"/>
 
     <nav class="navbar-expand-lg navbar">
         <a class="navbar-brand" href="#">Olesker Cupcakes management</a>
         <ul class="navbar-nav ml-auto">
+            <!-- https://www.tutorialrepublic.com/snippets/preview.php?topic=bootstrap&file=navbar-dropdown-login-and-signup-form-with-social-buttons -->
             <li class="nav-item ">
-                <a class="nav-link" href="#">LOGIN</a>
+                <a data-toggle="dropdown" class="nav-link dropdown-toggle  " href="#">LOGIN</a>
+                <ul class="dropdown-menu form-wrapper dropdown-menu-right mydropdown">
+                    <li>
+                        <form action="frontcontroller" method="post">
+                            <div class="form-group ml-2 mr-2">
+                                <input type="text" class="form-control" placeholder="Brugernavn" required="required">
+                            </div>
+                            <div class="form-group ml-2 mr-2">
+                                <input type="password" class="form-control" placeholder="Kodeord" required="required">
+                            </div>
+                            <div class="form-footer text-center">
+                                <input type="submit" class="btn btn-danger btn-style " value="Login">
+                            </div>
+                            <div class="form-footer text-center">
+                                <a href="#">Ny bruger? Registrer dig her</a>
+                            </div>
+
+                        </form>
+                    </li>
+                </ul>
+            </li>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="#">KURV</a>
+                <a class="nav-link mt-1" href="#">KURV</a>
             </li>
+
+
+
         </ul>
     </nav>
 
