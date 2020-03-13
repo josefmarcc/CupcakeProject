@@ -1,23 +1,24 @@
 package FunctionLayer;
 
 /**
- * The purpose of User is to...
- * @author kasper
+ * @author Josef
  */
 public class User {
 
+    private String name;
+    private String email;
+    private String password;
+    private int balance;
 
-
-    public User(String email, String password, String role ) {
+    public User( String name, String email, String password ) {
+        this.name = name;
         this.email = email;
         this.password = password;
-        this.role = role;
     }
 
-    private int id; // just used to demo retrieval of autogen keys in UserMapper
-    private String email;
-    private String password; // Should be hashed and secured
-    private String role;
+    public String getName(){return name;}
+
+    public void setName(String name){this.name = name;}
 
     public String getEmail() {
         return email;
@@ -35,32 +36,21 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
 
-    public void setRole( String role ) {
-        this.role = role;
-    }
+    public int getBalance() {
+        return balance;
+}
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId( int id ) {
-        this.id = id;
+    public void setBalance( int balance) {
+        this.balance = balance;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
-                '}';
+                ", password='" + password + '\'';
     }
-
-
-
 
 }

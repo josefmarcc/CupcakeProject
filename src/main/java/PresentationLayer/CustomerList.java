@@ -23,12 +23,11 @@ public class CustomerList extends Command {
 
 
         ArrayList<User> customerList = LogicFacade.customerList();
-
-        int antalKunder = customerList.size();
+        int customerAmount = customerList.size();
         HttpSession session = request.getSession();
 
         session.setAttribute("customerlist",customerList);
-        session.setAttribute("antalKunder", antalKunder);
+        session.setAttribute("customerAmount", customerAmount);
 
         return "oversigt";
     }

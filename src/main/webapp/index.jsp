@@ -21,7 +21,6 @@
                 <td>
                     <form name="login" action="FrontController" method="POST">
                         <input type="hidden" name="taget" value="login">
-                        Email:<br>
                         <input type="text" name="email" value="someone@nowhere.com">
                         <br>
                         Password:<br>
@@ -34,6 +33,9 @@
                 <td>
                     <form name="register" action="FrontController" method="POST">
                         <input type="hidden" name="taget" value="register">
+                        Name:<br>
+                        <input type="text" name="name" value="someone">
+                        <br>
                         Email:<br>
                         <input type="text" name="email" value="someone@nowhere.com">
                         <br>

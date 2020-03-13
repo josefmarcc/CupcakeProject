@@ -13,23 +13,21 @@ import java.util.ArrayList;
 /**
  * The purpose of UserMapper is to...
  *
- * @author kasper
+ * @author Josef
  */
 public class UserMapper {
+
 
     public static void createUser(User user) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO Users (email, password, role) VALUES (?, ?, ?)";
+            String SQL = "INSERT INTO cupcake.users (name, email, password, balance) VALUES (?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, user.getEmail());
-            ps.setString(2, user.getPassword());
-            ps.setString(3, user.getRole());
+            ps.setString(1, user.getName());
+            ps.setString(2, user.getEmail());
+            ps.setString(3, user.getPassword());
+            ps.setInt(4,500);
             ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt(1);
-            user.setId(id);
         } catch (SQLException | ClassNotFoundException ex) {
             throw new LoginSampleException(ex.getMessage());
         }
@@ -38,17 +36,18 @@ public class UserMapper {
     public static User login(String email, String password) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT id, role FROM Users "
+            String SQL = "SELECT name, balance FROM cupcake.users "
                     + "WHERE email=? AND password=?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, email);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                String role = rs.getString("role");
-                int id = rs.getInt("id");
-                User user = new User(email, password, role);
-                user.setId(id);
+                String name = rs.getString("name");
+                int balance = rs.getInt("balance");
+                User user = new User(name, email, password);
+                user.setName(name);
+                user.setBalance(balance);
                 return user;
             } else {
                 throw new LoginSampleException("Could not validate user");
@@ -64,15 +63,14 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
             Statement stmt = con.createStatement();
-            String SQL = "SELECT * FROM useradmin.users WHERE role=\"customer\"";
+            String SQL = "SELECT * FROM cupcake.users";
             ResultSet rs = stmt.executeQuery(SQL);
 
             while (rs.next()) {
-                String role = rs.getString("role");
-                int id = rs.getInt("id");
+                String name = rs.getString("name");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
-                User user = new User(email, password, role);
+                User user = new User( name, email, password);
                 customerList.add(user);
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -83,7 +81,7 @@ public class UserMapper {
 
     public static void deleteMember(String email) {
         try {
-            String SQL = "DELETE FROM useradmin.users WHERE email = (?)";
+            String SQL = "DELETE FROM cupcake.users WHERE email = (?)";
             Connection con = Connector.connection();
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, email);
@@ -99,7 +97,7 @@ public class UserMapper {
     public static void changePassword(String password, String email) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE useradmin.users SET password = (?) WHERE email = (?)";
+            String SQL = "UPDATE cupcake.users SET password = (?) WHERE email = (?)";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, password);
             ps.setString(2, email);
