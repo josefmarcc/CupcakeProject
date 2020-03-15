@@ -4,8 +4,7 @@ public class Bottom {
 
 
         private final String name;
-        private final int price;
-
+        private final double price;
 
         public Bottom(String name, int price) {
             this.name = name;
@@ -16,7 +15,7 @@ public class Bottom {
             return name;
         }
 
-        public int getPrice() {
+        public double getPrice() {
             return price;
         }
 

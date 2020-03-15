@@ -3,7 +3,7 @@ package FunctionLayer;
 public class Topping {
 
     private final String name;
-    private final int price;
+    private final double price;
 
     public Topping(String name, int price) {
         this.name = name;
@@ -14,7 +14,7 @@ public class Topping {
         return name;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 

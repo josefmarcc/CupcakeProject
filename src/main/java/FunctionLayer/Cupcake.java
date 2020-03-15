@@ -4,7 +4,7 @@ public class Cupcake {
 
     private Topping top;
     private Bottom bottom;
-    private int totalPrice;
+    private double totalPrice;
 
 
     public Cupcake(Topping top, Bottom bottom) {
@@ -30,11 +30,11 @@ public class Cupcake {
         this.bottom = bottom;
     }
 
-    public int getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 

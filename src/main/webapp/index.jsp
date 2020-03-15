@@ -1,4 +1,18 @@
+<%@ page import="FunctionLayer.ToppingsBottoms" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%!
+    @Override
+    public void jspInit(){
+        //Fyr kode af til init. F.eks befolke datastruktur/lister etc.
+        ToppingsBottoms.initLists();
+    }
+%>
+<%
+    request.setAttribute("toppings", ToppingsBottoms.getToppingsList());
+    request.setAttribute("bottoms", ToppingsBottoms.getBottomsList());
+%>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -72,8 +86,8 @@
                     Topping
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <c:forEach var="topping" items="${requestScope.toppings}">
-                        <a class="dropdown-item"> ${topping}</a>
+                    <c:forEach var="topping" items="${toppings}">
+                        <a class="dropdown-item"> ${topping.name}, ${topping.price} kr</a>
                     </c:forEach>
                 </div>
 
@@ -83,8 +97,8 @@
                     Bund
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <c:forEach var="bottom" items="${requestScope.bottoms}">
-                        <a class="dropdown-item"> ${bottom} </a>
+                    <c:forEach var="bottom" items="${bottoms}">
+                        <a class="dropdown-item"> ${bottom.name}, ${bottom.price} kr</a>
                     </c:forEach>
                 </div>
             </div>

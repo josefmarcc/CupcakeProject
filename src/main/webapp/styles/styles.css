@@ -45,14 +45,11 @@ a, li{
 
 }
 
-.mydropdown{
-
-}
-
 .navbarButton {
     border: none;
     background: none;
     padding: 0;
+    margin-top: 10%;
     color: var(--secondary-color)
 }
 
