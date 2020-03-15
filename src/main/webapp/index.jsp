@@ -1,5 +1,6 @@
 <%@ page import="FunctionLayer.ToppingsBottoms" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
 <%!
     @Override
