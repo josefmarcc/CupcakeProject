@@ -61,7 +61,7 @@
             </li>
             </li>
             <li class="nav-item ">
-                <a class="nav-link mt-1" href="#">KURV</a>
+                <a class="nav-link " href="#">KURV</a>
             </li>
 
             <li class="nav-item">
@@ -106,8 +106,6 @@
                     myElement.innerText = text;
                 }
             </script>
-
-
         </div>
 
 
@@ -140,7 +138,6 @@
         <div class="col-lg-1"></div>
     </div>
 
-
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -153,6 +150,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-<script> src="javascript/scripts.js" </script>
 </body>
 </html>
