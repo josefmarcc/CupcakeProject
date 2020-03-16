@@ -16,6 +16,7 @@ public class ToppingsBottoms {
         if(bottomsList == null){
             bottomsList = LogicFacade.getBottoms();
         }
+
     }
 
     public static List<Topping> getToppingsList() {

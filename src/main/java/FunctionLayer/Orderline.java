@@ -1,5 +1,7 @@
 package FunctionLayer;
 
+import DBAccess.ProductMapper;
+
 public class Orderline {
 
     private final int orderlineid, orderid,qty,sum,toppingid,bottomid;
@@ -36,4 +38,7 @@ public class Orderline {
     public int getBottomid() {
         return bottomid;
     }
+
+
+
 }

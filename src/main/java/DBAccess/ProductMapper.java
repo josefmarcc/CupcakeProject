@@ -111,7 +111,44 @@ public class ProductMapper {
         return 0;
     }
 
+    public static String getToppingName(int id){
+        try {
+            Connection con = Connector.connection();
+            Statement stmt = con.createStatement();
+            String SQL = "SELECT topping_name FROM cupcake.customer_view where topping_id ="+ id +";";
+            ResultSet rs = stmt.executeQuery(SQL);
 
+            String toppingname = "";
 
+            while (rs.next()) {
+                toppingname = rs.getString("topping_name");
+            }
+            return toppingname;
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex);
+        }
+        return "FEJLTOPPING";
+    }
 
+    public static String getBottomName(int id){
+            try {
+        Connection con = Connector.connection();
+        Statement stmt = con.createStatement();
+        String SQL = "SELECT buttom_name FROM cupcake.customer_view where buttom_id ="+ id +";";
+        ResultSet rs = stmt.executeQuery(SQL);
+
+        String buttomname = "";
+
+        while (rs.next()) {
+            buttomname = rs.getString("bottom_name");
+        }
+        return buttomname;
+    } catch (SQLException | ClassNotFoundException ex) {
+        System.out.println(ex);
+    }
+        return "FEJLBUND";
 }
+}
+
+
+
