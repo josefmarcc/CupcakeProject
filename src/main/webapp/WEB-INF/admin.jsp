@@ -87,10 +87,21 @@
                         </tbody>
                     </table>
                 </div>
-                <button type="button" class="btn btn-danger btn-style mt-2">
-                    Slet ordre
-                </button>
+                <div class="buttoncontainer">
+                    <form action="FrontController" method="post">
+                        <input type="hidden" name="taget" value="deleteorder"/>
+                        <div class="form-row">
+                            <div class="col-5">
+                                <input type="text" name="id" class="form-control mt-4" placeholder="Indtast ordre id">
+                                <button type="button" class="btn btn-danger btn-style mt-4">
+                                    Slet ordre
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
+
             <div class="col-2" ></div>
             <div class="col-5" >
                 <form action="FrontController" method="post">
@@ -103,6 +114,7 @@
                             <input type="text" name="brugernavn" class="form-control" placeholder="Brugernavn">
                         </div>
                     </div>
+
                     <button type="button" class="btn btn-danger btn-style mt-4">
                         Opdater saldo
                     </button>

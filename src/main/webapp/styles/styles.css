@@ -92,3 +92,8 @@ a, li{
 .dropdown:hover .dropbtn {
     background-color: var(--third-color);
 }
+
+<!-- Noget andet  -->
+.buttoncontainer{
+    display: inline-block;
+}
