@@ -106,6 +106,11 @@
                     myElement.innerText = text;
                 }
             </script>
+            <form>
+                <input type="hidden" name="taget" value="showcookie">
+                <button type="button" class="btn btn-danger btn-style mt-2">Se dit valg</button>
+                <button type="button" class="btn btn-danger btn-style mt-2">Fortryd</button>
+            </form>
         </div>
 
 
@@ -133,7 +138,7 @@
                 <option>10</option>
             </select>
             <button type="button" class="btn btn-danger btn-style mt-2 mr-4">Læg i kurv</button>
-            <button type="button" class="btn btn-danger btn-style mt-2">Fortryd</button>
+
         </div>
         <div class="col-lg-1"></div>
     </div>

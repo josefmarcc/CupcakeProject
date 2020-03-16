@@ -64,6 +64,7 @@
                     <table class="table table-borderless table.responsive">
                         <thead>
                         <tr>
+                            <th scope="col">Slet ordre</th>
                             <th scope="col">Topping</th>
                             <th scope="col">Bund</th>
                             <th scope="col">Orderid</th>
@@ -76,6 +77,13 @@
                                 <!-- https://www.codejava.net/java-ee/jsp/how-to-list-records-in-a-database-table-using-jsp-and-jstl -->
                             <c:forEach var="order" items="${requestScope.orderlist}">
                         <tr>
+
+                            <td>
+                                <form action="FrontController" method="post">
+                                    <input type="hidden" name="taget" value="deleteorder"/>
+                                    <button class="btn btn-danger btn-style deletebutton">X</button>
+                                </form>
+                            </td>
                             <td><c:out value="${order.toppingid}"/></td>
                             <td><c:out value="${order.bottomid}"/></td>
                             <td><c:out value="${order.orderid}"/></td>
@@ -87,10 +95,9 @@
                         </tbody>
                     </table>
                 </div>
-                <button type="button" class="btn btn-danger btn-style mt-2">
-                    Slet ordre
-                </button>
+
             </div>
+
             <div class="col-2" ></div>
             <div class="col-5" >
                 <form action="FrontController" method="post">
@@ -103,6 +110,7 @@
                             <input type="text" name="brugernavn" class="form-control" placeholder="Brugernavn">
                         </div>
                     </div>
+
                     <button type="button" class="btn btn-danger btn-style mt-4">
                         Opdater saldo
                     </button>

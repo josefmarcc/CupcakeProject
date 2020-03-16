@@ -92,3 +92,9 @@ a, li{
 .dropdown:hover .dropbtn {
     background-color: var(--third-color);
 }
+
+
+<!-- Deletebutton -->
+.deletebutton{
+    max-height: 25%;
+}

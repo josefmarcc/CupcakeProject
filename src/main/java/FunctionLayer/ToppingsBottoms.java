@@ -11,10 +11,10 @@ public class ToppingsBottoms {
 
     public static void initLists(){
         if(toppingsList == null){
-            toppingsList = ProductMapper.getTops();
+            toppingsList = LogicFacade.getToppings();
         }
         if(bottomsList == null){
-            bottomsList = ProductMapper.getBottoms();
+            bottomsList = LogicFacade.getBottoms();
         }
     }
 
