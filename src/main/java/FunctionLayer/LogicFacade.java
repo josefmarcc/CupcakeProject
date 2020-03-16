@@ -25,7 +25,7 @@ public class LogicFacade {
     }
 
     public static ArrayList<Orderline> getOrderList() {
-        return UserMapper.getOrderList();
+        return ProductMapper.getOrderList();
     }
 
     public static void removeCustomer(String email) {
@@ -42,6 +42,14 @@ public class LogicFacade {
 
     public static List<Bottom> getBottoms(){
         return ProductMapper.getBottoms();
+    }
+
+    public static void deleteOrder(int orderid){
+        ProductMapper.deleteOrder(orderid);
+    }
+
+    public static void addCredit(String email, int credit){
+        ProductMapper.addCredit(email,credit);
     }
 
 

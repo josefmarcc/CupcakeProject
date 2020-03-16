@@ -61,29 +61,7 @@ public class UserMapper {
         }
     }
 
-    public static ArrayList<Orderline> getOrderList() {
-        ArrayList<Orderline> orderList = new ArrayList();
-        try {
-            Connection con = Connector.connection();
-            Statement stmt = con.createStatement();
-            String SQL = "SELECT * FROM cupcake.orderline";
-            ResultSet rs = stmt.executeQuery(SQL);
 
-            while (rs.next()) {
-                int orderlineid = rs.getInt("orderline_id");
-                int orderid = rs.getInt("order_id");
-                int qty = rs.getInt("qty");
-                int sum = rs.getInt("sum");
-                int toppingid = rs.getInt("topping_id");
-                int bottomid = rs.getInt("bottom_id");
-                Orderline orderline = new Orderline(orderlineid,orderid,qty,sum,toppingid,bottomid);
-                orderList.add(orderline);
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            System.out.println(ex);
-        }
-        return orderList;
-    }
 
     public static void deleteMember(String email) {
         try {

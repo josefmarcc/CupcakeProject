@@ -111,11 +111,11 @@ public class ProductMapper {
         return 0;
     }
 
-    public static String getToppingName(int id){
+    public static String getToppingName(int id) {
         try {
             Connection con = Connector.connection();
             Statement stmt = con.createStatement();
-            String SQL = "SELECT topping_name FROM cupcake.customer_view where topping_id ="+ id +";";
+            String SQL = "SELECT topping_name FROM cupcake.customer_view where topping_id =" + id + ";";
             ResultSet rs = stmt.executeQuery(SQL);
 
             String toppingname = "";
@@ -130,27 +130,83 @@ public class ProductMapper {
         return "FEJLTOPPING";
     }
 
-    public static String getBottomName(int id){
-            try {
-        Connection con = Connector.connection();
-        Statement stmt = con.createStatement();
-        String SQL = "SELECT bottom_name FROM cupcake.customer_view where bottom_id ="+ id +";";
-        ResultSet rs = stmt.executeQuery(SQL);
+    public static String getBottomName(int id) {
+        try {
+            Connection con = Connector.connection();
+            Statement stmt = con.createStatement();
+            String SQL = "SELECT bottom_name FROM cupcake.customer_view where bottom_id =" + id + ";";
+            ResultSet rs = stmt.executeQuery(SQL);
 
-        String bottomname = "";
+            String bottomname = "";
 
-        while (rs.next()) {
-            bottomname = rs.getString("bottom_name");
+            while (rs.next()) {
+                bottomname = rs.getString("bottom_name");
+            }
+            return bottomname;
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex);
         }
-        return bottomname;
-    } catch (SQLException | ClassNotFoundException ex) {
-        System.out.println(ex);
-    }
         return "FEJLBUND";
     }
 
 
+    public static ArrayList<Orderline> getOrderList() {
+        ArrayList<Orderline> orderList = new ArrayList();
+        try {
+            Connection con = Connector.connection();
+            Statement stmt = con.createStatement();
+            String SQL = "SELECT * FROM cupcake.orderline";
+            ResultSet rs = stmt.executeQuery(SQL);
+
+            while (rs.next()) {
+                int orderlineid = rs.getInt("orderline_id");
+                int orderid = rs.getInt("order_id");
+                int qty = rs.getInt("qty");
+                int sum = rs.getInt("sum");
+                int toppingid = rs.getInt("topping_id");
+                int bottomid = rs.getInt("bottom_id");
+                Orderline orderline = new Orderline(orderlineid, orderid, qty, sum, toppingid, bottomid);
+                orderList.add(orderline);
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println(ex);
+        }
+        return orderList;
+    }
+
+
+    public static void deleteOrder(int order_id) {
+        try {
+            String SQL = "DELETE FROM cupcake.orderline where order_id =" + order_id + ";";
+            Connection con = Connector.connection();
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.execute();
+            ps.close();
+
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println("FEJL! Kunne ikke fjerne order");
+        }
+    }
+
+    public static void addCredit(String email, int credit) {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE cupcake.customer SET credit = credit + (?) WHERE email = (?)";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, credit);
+            ps.setString(2, email);
+            ps.execute();
+            ps.close();
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println("FEJL! Kunne ikke finde bruger");
+        }
+    }
+
 }
+
+
+
 
 
 

@@ -1,6 +1,8 @@
 package PresentationLayer;
 
 import FunctionLayer.LoginSampleException;
+import com.mysql.cj.x.protobuf.MysqlxCrud;
+
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,8 @@ abstract class Command {
         commands.put("orderlist", new OrderList());
         commands.put("changepassword", new ChangePassword());
         commands.put("logout", new LogoutSession());
+        commands.put("deleteorder", new DeleteOrder());
+        commands.put("addcredit", new AddCredit());
     }
 
     static Command from( HttpServletRequest request ) {

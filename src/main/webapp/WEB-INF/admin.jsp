@@ -79,7 +79,7 @@
                         <tr>
                             <td>
                                 <form action="FrontController" method="post">
-                                    <input type="hidden" name="taget" value="deleteorder"/>
+                                    <input type="hidden" name="taget" value="">
                                     <button class="btn btn-danger btn-style deletebutton">X</button>
                                 </form>
                             </td>
@@ -100,17 +100,17 @@
             <div class="col-2" ></div>
             <div class="col-5" >
                 <form action="FrontController" method="post">
-                    <input type="hidden" name="taget" value="opdatersaldo"/>
+                    <input type="hidden" name="taget" value="addcredit"/>
                     <div class="form-row">
                         <div class="col-5">
                             <input type="text" name="saldo" class="form-control" placeholder="Indsæt saldo">
                         </div>
                         <div class="col-5">
-                            <input type="text" name="brugernavn" class="form-control" placeholder="Brugernavn">
+                            <input type="text" name="email" class="form-control" placeholder="Email">
                         </div>
                     </div>
 
-                    <button type="button" class="btn btn-danger btn-style mt-4">
+                    <button type="submit" class="btn btn-danger btn-style mt-4">
                         Opdater saldo
                     </button>
                 </form>
