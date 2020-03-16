@@ -81,28 +81,33 @@
                 Lav din cupcake:
             </div>
 
-            <div class="dropdown mt-2 ml-5">
-                <a class="btn btn-danger dropdown-toggle mb-2" href="#" role="button" id="dropdownMenuLink1"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Topping
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <c:forEach var="topping" items="${toppings}">
-                        <a class="dropdown-item"> ${topping.name}, ${topping.price} kr</a>
-                    </c:forEach>
-                </div>
 
-                <a class="btn btn-danger dropdown-toggle mb-2 ml-4" href="#" role="button" id="dropdownMenuLink"
-                   data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Bund
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <c:forEach var="bottom" items="${bottoms}">
-                        <a class="dropdown-item"> ${bottom.name}, ${bottom.price} kr</a>
+            <div class="dropdown">
+                <button id="btn1" class="dropbtn btn-danger btn-style mb-2 btn-block">Topping</button>
+                <div class="dropdown-content">
+                    <c:forEach var="topping" items="${toppings}">
+                        <a class="dropdown-item" onclick="doSelect('${topping.name}','btn1')">${topping.name}</a>
                     </c:forEach>
                 </div>
             </div>
+
+            <div class="dropdown">
+                <button id="btn2" class="dropbtn btn-danger btn-style mb-2 ml-4 btn-block">Bund</button>
+                <div class="dropdown-content ml-4 ">
+                    <c:forEach var="bottom" items="${bottoms}">
+                        <a class="dropdown-item" onclick="doSelect('${bottom.name}','btn2')">${bottom.name}</a>
+                    </c:forEach>
+                </div>
+            </div>
+
+            <script>
+                function doSelect(text,btn){
+                    var myElement = document.getElementById(btn);
+                    myElement.innerText = text;
+                }
+            </script>
+
+
         </div>
 
 
@@ -148,5 +153,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+<script> src="javascript/scripts.js" </script>
 </body>
 </html>
