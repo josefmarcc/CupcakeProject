@@ -44,5 +44,7 @@ public class LogicFacade {
         return ProductMapper.getBottoms();
     }
 
-
+    public static List<User> getCustomerList(){
+        return UserMapper.getCustomerList();
+    }
 }
