@@ -39,6 +39,12 @@ public class Orderline {
         return bottomid;
     }
 
+    public String getToppingName(int id){
+        return ProductMapper.getToppingName(id);
+    }
 
+    public String getBottomName(int id){
+        return ProductMapper.getBottomName(id);
+    }
 
 }

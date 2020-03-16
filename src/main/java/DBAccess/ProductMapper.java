@@ -134,15 +134,15 @@ public class ProductMapper {
             try {
         Connection con = Connector.connection();
         Statement stmt = con.createStatement();
-        String SQL = "SELECT buttom_name FROM cupcake.customer_view where buttom_id ="+ id +";";
+        String SQL = "SELECT bottom_name FROM cupcake.customer_view where bottom_id ="+ id +";";
         ResultSet rs = stmt.executeQuery(SQL);
 
-        String buttomname = "";
+        String bottomname = "";
 
         while (rs.next()) {
-            buttomname = rs.getString("bottom_name");
+            bottomname = rs.getString("bottom_name");
         }
-        return buttomname;
+        return bottomname;
     } catch (SQLException | ClassNotFoundException ex) {
         System.out.println(ex);
     }

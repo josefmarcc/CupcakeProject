@@ -84,7 +84,7 @@
                                 </form>
                             </td>
                             <td><c:out value="${order.getToppingName(order.toppingid)}"/></td>
-                            <td><c:out value="${order.getButtomName(order.bottomid)}"/></td>
+                            <td><c:out value="${order.getBottomName(order.bottomid)}"/></td>
                             <td><c:out value="${order.orderid}"/></td>
                             <td><c:out value="${order.sum} kr"/></td>
                             <td><c:out value="${order.qty}"/></td>
