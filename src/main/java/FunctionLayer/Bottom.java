@@ -2,7 +2,7 @@ package FunctionLayer;
 
 public class Bottom {
 
-
+        private int id;
         private final String name;
         private final double price;
 

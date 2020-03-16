@@ -5,20 +5,41 @@ package FunctionLayer;
  */
 public class User {
 
-    private String name;
+    private int id;
     private String email;
     private String password;
-    private int balance;
+    private String role;
+    private int credit;
 
-    public User( String name, String email, String password ) {
-        this.name = name;
+    public User( String email, String password ) {
         this.email = email;
         this.password = password;
     }
 
-    public String getName(){return name;}
+    public String getRole() {
+        return role;
+    }
 
-    public void setName(String name){this.name = name;}
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public int getCredit() {
+        return credit;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCredit(int credit) {
+        this.credit = credit;
+    }
+
 
     public String getEmail() {
         return email;
@@ -37,14 +58,8 @@ public class User {
     }
 
 
-    public int getBalance() {
-        return balance;
-}
 
 
-    public void setBalance( int balance) {
-        this.balance = balance;
-    }
 
     @Override
     public String toString() {

@@ -42,8 +42,8 @@ public class ProductMapper {
             ResultSet rs = stmt.executeQuery(SQL);
 
             while (rs.next()) {
-                String name = rs.getString("tname");
-                int price = rs.getInt("tPrice");
+                String name = rs.getString("name");
+                int price = rs.getInt("price");
                 Topping top = new Topping(name, price);
                 toppings.add(top);
             }
@@ -61,8 +61,8 @@ public class ProductMapper {
             String SQL = "SELECT * FROM cupcake.bottom";
             ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
-                String name = rs.getString("bname");
-                int price = rs.getInt("bPrice");
+                String name = rs.getString("name");
+                int price = rs.getInt("price");
                 Bottom bottom = new Bottom(name, price);
                 bottoms.add(bottom);
             }
@@ -76,13 +76,13 @@ public class ProductMapper {
         try {
             Connection con = Connector.connection();
             Statement stmt = con.createStatement();
-            String SQL = "SELECT tPrice FROM cupcake.topping + WHERE cupcake.topping.tname = " + name + ";";
+            String SQL = "SELECT price FROM cupcake.topping + WHERE cupcake.topping.name = " + name + ";";
             ResultSet rs = stmt.executeQuery(SQL);
 
             int price = 0;
 
             while (rs.next()) {
-                price = rs.getInt("tPrice");
+                price = rs.getInt("price");
             }
             return price;
         } catch (SQLException | ClassNotFoundException ex) {
@@ -96,13 +96,13 @@ public class ProductMapper {
         try {
             Connection con = Connector.connection();
             Statement stmt = con.createStatement();
-            String SQL = "SELECT bPrice FROM cupcake.bottom + WHERE cupcake.bottom.bname = " + name + ";";
+            String SQL = "SELECT price FROM cupcake.bottom + WHERE cupcake.bottom.name = " + name + ";";
             ResultSet rs = stmt.executeQuery(SQL);
 
             int price = 0;
 
             while (rs.next()) {
-                price = rs.getInt("bPrice");
+                price = rs.getInt("price");
             }
             return price;
         } catch (SQLException | ClassNotFoundException ex) {

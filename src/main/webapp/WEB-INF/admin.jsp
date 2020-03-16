@@ -66,7 +66,7 @@
                         <tr>
                             <th scope="col">Topping</th>
                             <th scope="col">Bund</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">Orderid</th>
                             <th scope="col">Total</th>
                             <th scope="col">Antal</th>
                         </tr>
@@ -76,10 +76,10 @@
                                 <!-- https://www.codejava.net/java-ee/jsp/how-to-list-records-in-a-database-table-using-jsp-and-jstl -->
                             <c:forEach var="order" items="${requestScope.orderlist}">
                         <tr>
-                            <td><c:out value="${order.topping}"/></td>
-                            <td><c:out value="${order.bottom}"/></td>
-                            <td><c:out value="${order.email}"/></td>
-                            <td><c:out value="${order.total}"/></td>
+                            <td><c:out value="${order.toppingid}"/></td>
+                            <td><c:out value="${order.bottomid}"/></td>
+                            <td><c:out value="${order.orderid}"/></td>
+                            <td><c:out value="${order.sum}"/></td>
                             <td><c:out value="${order.qty}"/></td>
                         </tr>
                         </c:forEach>

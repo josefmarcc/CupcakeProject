@@ -2,6 +2,7 @@ package DBAccess;
 
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
+import FunctionLayer.Orderline;
 import FunctionLayer.User;
 
 import java.sql.Connection;
@@ -19,69 +20,64 @@ import java.util.ArrayList;
 public class UserMapper {
 
 
-    private int id;
-    private String name;
-    private String email;
-    private String password;
-    private int balance;
 
 
     public static void createUser(User user) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO cupcake.users (name, email, password, balance) VALUES (?, ?, ?, ?)";
+            String SQL = "INSERT INTO cupcake.customer (email, password) VALUES (?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, user.getName());
-            ps.setString(2, user.getEmail());
-            ps.setString(3, user.getPassword());
-            ps.setInt(4,500);
+            ps.setString(1, user.getEmail());
+            ps.setString(2, user.getPassword());
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
             throw new LoginSampleException(ex.getMessage());
         }
     }
 
-    public static User login(String email, String password) throws LoginSampleException {
+    public static User login( String email, String password ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT name, balance FROM cupcake.users "
+            String SQL = "SELECT id, credit, role FROM cupcake.customer "
                     + "WHERE email=? AND password=?";
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setString(1, email);
-            ps.setString(2, password);
+            PreparedStatement ps = con.prepareStatement( SQL );
+            ps.setString( 1, email );
+            ps.setString( 2, password );
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String name = rs.getString("name");
-                int balance = rs.getInt("balance");
-                User user = new User(name, email, password);
-                user.setName(name);
-                user.setBalance(balance);
+            if ( rs.next() ) {
+                int id = rs.getInt( "id" );
+                int credit = rs.getInt( "credit" );
+                String role = rs.getString( "role" );
+                User user = new User( email, password );
+                user.setId( id );
+                user.setCredit(credit);
+                user.setRole(role);
                 return user;
             } else {
-                throw new LoginSampleException("Could not validate user");
+                throw new LoginSampleException( "Could not validate user" );
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch ( ClassNotFoundException | SQLException ex ) {
             throw new LoginSampleException(ex.getMessage());
         }
     }
 
-
-    public static ArrayList<Order> getOrderList() {
-        ArrayList<Order> orderList = new ArrayList();
+    public static ArrayList<Orderline> getOrderList() {
+        ArrayList<Orderline> orderList = new ArrayList();
         try {
             Connection con = Connector.connection();
             Statement stmt = con.createStatement();
-            String SQL = "SELECT * FROM cupcake.ordertails";
+            String SQL = "SELECT * FROM cupcake.orderline";
             ResultSet rs = stmt.executeQuery(SQL);
 
             while (rs.next()) {
-                String email = rs.getString("email");
-                String topping = rs.getString("tname");
-                String bottom = rs.getString("bname");
+                int orderlineid = rs.getInt("orderline_id");
+                int orderid = rs.getInt("order_id");
                 int qty = rs.getInt("qty");
-                int total = rs.getInt("total");
-                Order order = new Order(topping, bottom, email, total, qty);
-                orderList.add(order);
+                int sum = rs.getInt("sum");
+                int toppingid = rs.getInt("topping_id");
+                int bottomid = rs.getInt("bottom_id");
+                Orderline orderline = new Orderline(orderlineid,orderid,qty,sum,toppingid,bottomid);
+                orderList.add(orderline);
             }
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println(ex);
@@ -91,7 +87,7 @@ public class UserMapper {
 
     public static void deleteMember(String email) {
         try {
-            String SQL = "DELETE FROM cupcake.users WHERE email = (?)";
+            String SQL = "DELETE FROM cupcake.customer WHERE email = (?)";
             Connection con = Connector.connection();
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, email);
@@ -107,7 +103,7 @@ public class UserMapper {
     public static void changePassword(String password, String email) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE cupcake.users SET password = (?) WHERE email = (?)";
+            String SQL = "UPDATE cupcake.customer SET password = (?) WHERE email = (?)";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, password);
             ps.setString(2, email);

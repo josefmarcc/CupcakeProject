@@ -1,10 +1,7 @@
 package PresentationLayer;
 
 import DBAccess.UserMapper;
-import FunctionLayer.LogicFacade;
-import FunctionLayer.LoginSampleException;
-import FunctionLayer.Order;
-import FunctionLayer.User;
+import FunctionLayer.*;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +17,7 @@ public class OrderList extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-        ArrayList<Order> orderlist = LogicFacade.getOrderList();
+        ArrayList<Orderline> orderlist = LogicFacade.getOrderList();
 
         request.setAttribute("orderlist",orderlist);
 
