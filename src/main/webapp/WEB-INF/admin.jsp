@@ -64,6 +64,7 @@
                     <table class="table table-borderless table.responsive">
                         <thead>
                         <tr>
+                            <th scope="col">Slet ordre</th>
                             <th scope="col">Topping</th>
                             <th scope="col">Bund</th>
                             <th scope="col">Email</th>
@@ -76,6 +77,12 @@
                                 <!-- https://www.codejava.net/java-ee/jsp/how-to-list-records-in-a-database-table-using-jsp-and-jstl -->
                             <c:forEach var="order" items="${requestScope.orderlist}">
                         <tr>
+                            <td>
+                                <form action="FrontController" method="post">
+                                    <input type="hidden" name="taget" value="deleteorder"/>
+                                    <button class="btn btn-danger btn-style deletebutton">X</button>
+                                </form>
+                            </td>
                             <td><c:out value="${order.topping}"/></td>
                             <td><c:out value="${order.bottom}"/></td>
                             <td><c:out value="${order.email}"/></td>
@@ -87,19 +94,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="buttoncontainer">
-                    <form action="FrontController" method="post">
-                        <input type="hidden" name="taget" value="deleteorder"/>
-                        <div class="form-row">
-                            <div class="col-5">
-                                <input type="text" name="id" class="form-control mt-4" placeholder="Indtast ordre id">
-                                <button type="button" class="btn btn-danger btn-style mt-4">
-                                    Slet ordre
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+
             </div>
 
             <div class="col-2" ></div>

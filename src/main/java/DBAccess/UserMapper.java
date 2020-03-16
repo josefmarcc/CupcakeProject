@@ -18,7 +18,6 @@ import java.util.ArrayList;
  */
 public class UserMapper {
 
-
     private int id;
     private String name;
     private String email;

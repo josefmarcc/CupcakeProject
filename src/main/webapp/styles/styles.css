@@ -93,7 +93,8 @@ a, li{
     background-color: var(--third-color);
 }
 
-<!-- Noget andet  -->
-.buttoncontainer{
-    display: inline-block;
+
+<!-- Deletebutton -->
+.deletebutton{
+    max-height: 25%;
 }
