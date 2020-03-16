@@ -53,4 +53,7 @@ public class LogicFacade {
     }
 
 
+    public static List<User> getCustomerList(){
+        return UserMapper.getCustomerList();
+    }
 }

@@ -1,5 +1,17 @@
+<%@ page import="FunctionLayer.CustomerList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
+
+<%!
+    @Override
+    public void jspInit(){
+        //Fyr kode af til init. F.eks befolke datastruktur/lister etc.
+        CustomerList.initLists();
+    }
+%>
+<%
+    request.setAttribute("customers", CustomerList.getCustomerList());
+%>
 
 <!doctype html>
 <html lang="en">
@@ -58,8 +70,7 @@
     <h1 class="text-center mb-4 mt-4"> Administrator side </h1>
     <div class="container">
         <div class="row">
-            <div class="col-1" ></div>
-            <div class="col-4" >
+            <div class="col-lg-4" >
                 <div class="table-wrap">
                     <table class="table table-borderless table.responsive">
                         <thead>
@@ -97,8 +108,37 @@
 
             </div>
 
-            <div class="col-2" ></div>
-            <div class="col-5" >
+            <div class="col-lg-4" >
+                <div class="table-wrap">
+                    <table class="table table-borderless table.responsive">
+                        <thead>
+                        <tr>
+                            <th scope="col">Kunde id</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Kodeord</th>
+                            <th scope="col">Balance</th>
+                            <th scope="col">Role</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <!-- https://www.codejava.net/java-ee/jsp/how-to-list-records-in-a-database-table-using-jsp-and-jstl -->
+                            <c:forEach var="customer" items="${customers}">
+                        <tr>
+                            <td><c:out value="${customer.id}"/></td>
+                            <td><c:out value="${customer.email}"/></td>
+                            <td><c:out value="${customer.password}"/></td>
+                            <td><c:out value="${customer.credit} kr"/></td>
+                            <td><c:out value="${customer.role}"/></td>
+                        </tr>
+                        </c:forEach>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-lg-4" >
                 <form action="FrontController" method="post">
                     <input type="hidden" name="taget" value="addcredit"/>
                     <div class="form-row">
@@ -114,9 +154,6 @@
                         Opdater saldo
                     </button>
                 </form>
-
-
-
             </div>
         </div> <!-- row -->
 
