@@ -183,7 +183,6 @@ public class ProductMapper {
             ps.execute();
             ps.close();
 
-
         } catch (SQLException | ClassNotFoundException ex) {
             System.out.println("FEJL! Kunne ikke fjerne order");
         }

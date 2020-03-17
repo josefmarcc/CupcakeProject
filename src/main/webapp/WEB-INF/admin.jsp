@@ -90,13 +90,13 @@
                         <tr>
                             <td>
                                 <form action="FrontController" method="post">
-                                    <input type="hidden" name="taget" value="">
+                                    <input type="hidden" name="taget" value="deleteorder">
                                     <button class="btn btn-danger btn-style deletebutton">X</button>
                                 </form>
                             </td>
                             <td><c:out value="${order.getToppingName(order.toppingid)}"/></td>
                             <td><c:out value="${order.getBottomName(order.bottomid)}"/></td>
-                            <td><c:out value="${order.orderid}"/></td>
+                            <td name="orderid"><c:out value="${order.orderid}"/></td>
                             <td><c:out value="${order.sum} kr"/></td>
                             <td><c:out value="${order.qty}"/></td>
                         </tr>
