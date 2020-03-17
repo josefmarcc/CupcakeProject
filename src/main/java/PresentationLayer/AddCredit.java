@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import FunctionLayer.CustomerList;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 
@@ -14,6 +15,9 @@ public class AddCredit extends Command {
         int saldo = Integer.parseInt(request.getParameter("saldo"));
 
         LogicFacade.addCredit(email, saldo);
+        new OrderList().execute(request,response);
+
+        request.setAttribute("customers", new CustomerList().getCustomerList());
 
         return "admin";
 
