@@ -38,7 +38,9 @@
         <ul class="navbar-nav ml-auto">
             <!-- https://www.tutorialrepublic.com/snippets/preview.php?topic=bootstrap&file=navbar-dropdown-login-and-signup-form-with-social-buttons -->
             <li class="nav-item ">
-                <a>${sessionScope.email} </a>
+            <a class="nav-link">${sessionScope.email} </a>
+            </li>
+
                 <a data-toggle="dropdown" class="nav-link dropdown-toggle  " href="#">LOGIN</a>
                 <ul class="dropdown-menu form-wrapper dropdown-menu-right mydropdown">
                     <li>
