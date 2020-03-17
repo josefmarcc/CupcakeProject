@@ -60,7 +60,8 @@
 
                             </div>
                             <div class="form-footer text-center">
-                                <a href="#">Ny bruger? Registrer dig her</a>
+                                <input type="hidden" name="taget" value="register">
+                                <input type="submit" class="btn btn-danger btn-style " value="Ny bruger">
                             </div>
 
                         </form>
