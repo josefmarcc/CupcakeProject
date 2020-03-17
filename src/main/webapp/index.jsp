@@ -40,6 +40,9 @@
             <li class="nav-item ">
             <a class="nav-link">${sessionScope.email} </a>
             </li>
+            <li class="nav-item ">
+                <a class="nav-link"> ${sessionScope.credit} </a>
+            </li>
 
                 <a data-toggle="dropdown" class="nav-link dropdown-toggle  " href="#">LOGIN</a>
                 <ul class="dropdown-menu form-wrapper dropdown-menu-right mydropdown">
