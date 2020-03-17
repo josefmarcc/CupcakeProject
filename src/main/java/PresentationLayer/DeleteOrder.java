@@ -11,9 +11,7 @@ public class DeleteOrder extends Command{
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-
         int orderid = (int) request.getAttribute("orderid");
-        System.out.println(orderid);
         LogicFacade.deleteOrder(orderid);
         new OrderList().execute(request,response);
 
