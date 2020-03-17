@@ -3,9 +3,11 @@ package PresentationLayer;
 import FunctionLayer.CustomerList;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 public class AddCredit extends Command {
     @Override
@@ -17,7 +19,8 @@ public class AddCredit extends Command {
         LogicFacade.addCredit(email, saldo);
         new OrderList().execute(request,response);
 
-        request.setAttribute("customers", new CustomerList().getCustomerList());
+        List<User> customerList = LogicFacade.getCustomerList();
+        request.setAttribute("customers", customerList);
 
         return "admin";
 

@@ -39,14 +39,14 @@ public class UserMapper {
     public static User login( String email, String password ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT id, credit, role FROM cupcake.customer "
+            String SQL = "SELECT customer_id, credit, role FROM cupcake.customer "
                     + "WHERE email=? AND password=?";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, email );
             ps.setString( 2, password );
             ResultSet rs = ps.executeQuery();
             if ( rs.next() ) {
-                int id = rs.getInt( "id" );
+                int id = rs.getInt( "customer_id" );
                 int credit = rs.getInt( "credit" );
                 String role = rs.getString( "role" );
                 User user = new User( email, password );

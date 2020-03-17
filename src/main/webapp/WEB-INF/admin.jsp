@@ -91,10 +91,7 @@
                             <td>
                                 <form action="FrontController" method="post">
                                     <input type="hidden" name="taget" value="deleteorder" >
-
                                     <button class="btn btn-danger btn-style deletebutton" name="deletebutton" value="${order.orderid}"> X</button>
-
-
                                 </form>
                             </td>
                             <td><c:out value="${order.getToppingName(order.toppingid)}"/></td>
@@ -152,7 +149,6 @@
                             <input type="text" name="email" class="form-control" placeholder="Email">
                         </div>
                     </div>
-
                     <button type="submit" class="btn btn-danger btn-style mt-4">
                         Opdater saldo
                     </button>

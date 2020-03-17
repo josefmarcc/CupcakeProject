@@ -38,19 +38,21 @@
         <ul class="navbar-nav ml-auto">
             <!-- https://www.tutorialrepublic.com/snippets/preview.php?topic=bootstrap&file=navbar-dropdown-login-and-signup-form-with-social-buttons -->
             <li class="nav-item ">
+                <a>${sessionScope.email} </a>
                 <a data-toggle="dropdown" class="nav-link dropdown-toggle  " href="#">LOGIN</a>
                 <ul class="dropdown-menu form-wrapper dropdown-menu-right mydropdown">
                     <li>
                         <form name="login" action="FrontController" method="POST">
                             <div class="form-group ml-2 mr-2">
                             <input type="hidden" name="taget" value="login">
-                                <input type="text" class="form-control" name="email" placeholder="Brugernavn" required="required">
+                                <input type="text" class="form-control" name="email" placeholder="Email" required="required">
                             </div>
                             <div class="form-group ml-2 mr-2">
                                 <input type="password" class="form-control" name="password" placeholder="Kodeord" required="required">
                             </div>
                             <div class="form-footer text-center">
                                 <input type="submit" class="btn btn-danger btn-style " value="Login">
+
                             </div>
                             <div class="form-footer text-center">
                                 <a href="#">Ny bruger? Registrer dig her</a>
