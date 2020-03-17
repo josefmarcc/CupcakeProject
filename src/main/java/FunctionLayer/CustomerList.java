@@ -16,4 +16,8 @@ public class CustomerList {
     public static List<User> getCustomerList() {
         return customerList;
     }
+
+    public static void updateCustomerList(){
+        LogicFacade.getCustomerList();
+    }
 }

@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import DBAccess.UserMapper;
 import FunctionLayer.CustomerList;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
@@ -19,8 +20,7 @@ public class AddCredit extends Command {
         LogicFacade.addCredit(email, saldo);
         new OrderList().execute(request,response);
 
-        List<User> customerList = LogicFacade.getCustomerList();
-        request.setAttribute("customers", customerList);
+        request.setAttribute("customers", UserMapper.getCustomerList());
 
         return "admin";
 
