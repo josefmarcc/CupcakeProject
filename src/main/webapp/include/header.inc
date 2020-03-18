@@ -55,7 +55,7 @@
             </li>
             </li>
             <li class="nav-item ">
-                <a class="nav-link " href="#">KURV</a>
+                <a class="nav-link " href="FrontController?taget=redirect&modtagerside=checkout">KURV</a>
             </li>
 
             <li class="nav-item">

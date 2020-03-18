@@ -21,6 +21,7 @@ abstract class Command {
         commands.put("logout", new LogoutSession());
         commands.put("deleteorder", new DeleteOrder());
         commands.put("addcredit", new AddCredit());
+        commands.put( "redirect", new Redirect() );
     }
 
     static Command from( HttpServletRequest request ) {
