@@ -10,8 +10,6 @@ body{
 }
 
 .table-wrap {
-    min-height: 150%;
-    width: 150%;
     overflow-y: hidden;
     border-style: solid;
     border-color: var(--primary-color);

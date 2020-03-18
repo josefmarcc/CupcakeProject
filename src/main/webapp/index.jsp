@@ -111,7 +111,7 @@
             </select>
             <form action="FrontController" method="POST">
                 <input type="hidden" name="taget" value="addToBasket"/>
-                <button type="button" class="btn btn-danger btn-style mt-2 mr-4">Læg i kurv</button>
+                <button type="input" class="btn btn-danger btn-style mt-2 mr-4">Læg i kurv</button>
                 <div class="overskrift-size mt-5">
                     Total pris: ${sessionScope.sum}
                 </div>
