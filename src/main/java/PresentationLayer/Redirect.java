@@ -14,6 +14,11 @@ public class Redirect extends Command {
         switch (modtagerside){
             case "checkout":
                 return "checkout";
+
+            case "admin":
+                new OrderList().execute(request, response);
+                return "admin";
+
             default:
                 return "index";
         }

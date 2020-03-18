@@ -59,10 +59,11 @@
             </li>
 
             <li class="nav-item">
-                <form name="admin" action="FrontController" method="POST">
+                <a class="nav-link" href="FrontController?taget=redirect&modtagerside=admin">ADMIN</a>
+<!--                <form name="admin" action="FrontController" method="POST">
                     <input type="hidden" name="taget" value="orderlist">
                     <input type="submit" class="navbarButton" value="ADMIN"/>
-                </form>
+                </form>-->
             </li>
 
         </ul>
