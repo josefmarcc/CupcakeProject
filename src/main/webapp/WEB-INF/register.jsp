@@ -4,38 +4,40 @@
     Author     : kasper
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+
+<%@include file="../include/header.inc" %>
 
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registrer bruger</title>
-    </head>
-    <body>
-        <h1>Velkommen til oprettelse af en bruger</h1>
-        
-        <table>
+
+
+<div class="container col-lg-12">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h1>Opret bruger</h1>
+            <table class="table table-borderless table.responsive">
                 <td>
                     <form name="register" action="FrontController" method="POST">
                         <input type="hidden" name="taget" value="register">
                         Email:<br>
-                        <input type="text" name="email" value="someone@nowhere.com">
+                        <input type="text" name="email" class="form-control" value="someone@nowhere.com">
                         <br>
                         Password:<br>
-                        <input type="password" name="password1" value="sesam">
+                        <input type="password" name="password1" class="form-control" value="sesam">
                         <br>
                         Retype Password:<br>
-                        <input type="password" name="password2" value="sesam">
+                        <input type="password" name="password2" class="form-control" value="sesam">
                         <br>
-                        <input type="submit" value="Submit">
+                        <input type="submit" class="btn btn-danger btn-style mt-2" value="Submit">
                     </form>
                 </td>
-            </tr>
-        </table>
-<br>
-<br>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
 
-    </body>
+
+</body>
 </html>
