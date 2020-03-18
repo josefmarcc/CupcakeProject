@@ -28,6 +28,9 @@
             <li class="nav-item ">
                 <a class="nav-link"> ${sessionScope.credit} </a>
             </li>
+            <li>
+                <a class="nav-link" href="FrontController?taget=redirect&modtagerside=register">OPRET BRUGER</a>
+            </li>
 
                 <a data-toggle="dropdown" class="nav-link dropdown-toggle  " href="#">LOGIN</a>
                 <ul class="dropdown-menu form-wrapper dropdown-menu-right mydropdown">
@@ -42,13 +45,7 @@
                             </div>
                             <div class="form-footer text-center">
                                 <input type="submit" class="btn btn-danger btn-style " value="Login">
-
                             </div>
-                            <div class="form-footer text-center">
-                                <input type="hidden" name="taget" value="register">
-                                <input type="submit" class="btn btn-danger btn-style " value="Ny bruger">
-                            </div>
-
                         </form>
                     </li>
                 </ul>

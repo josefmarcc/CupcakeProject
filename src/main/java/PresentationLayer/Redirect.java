@@ -22,6 +22,9 @@ public class Redirect extends Command {
             case "index":
                 return "../index";
 
+            case "register":
+                return "register";
+
             default:
                 return "index";
         }
