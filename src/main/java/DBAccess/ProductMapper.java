@@ -202,6 +202,23 @@ public class ProductMapper {
         }
     }
 
+    public static void addToBasket(int order_id, int qty, int sum, int topping_id, int bottom_id) {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "INSERT INTO cupcake.orderline (order_id, qty, sum, topping_id, bottom_id) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, order_id);
+            ps.setInt(2, qty);
+            ps.setInt(3, sum);
+            ps.setInt(4, topping_id);
+            ps.setInt(5, bottom_id);
+            ps.execute();
+            ps.close();
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println("FEJL! Kunne ikke finde bruger");
+        }
+    }
+
 }
 
 
