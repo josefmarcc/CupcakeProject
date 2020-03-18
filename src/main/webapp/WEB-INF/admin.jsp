@@ -15,7 +15,7 @@
 <%@include file="../include/header.inc"%>
 
     <h1 class="text-center mb-4 mt-4"> Administrator side </h1>
-    <div class="container">
+    <div class="container col-lg-12">
         <div class="row">
             <div class="col-lg-4" >
                 <div class="table-wrap">

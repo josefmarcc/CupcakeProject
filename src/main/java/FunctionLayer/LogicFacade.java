@@ -52,6 +52,7 @@ public class LogicFacade {
         ProductMapper.addCredit(email,credit);
     }
 
+    public static void addToBasket(int order_id, int qty, int sum, int topping_id, int bottom_id) { ProductMapper.addToBasket(order_id, qty, sum, topping_id, bottom_id);}
 
     public static List<User> getCustomerList(){
         return UserMapper.getCustomerList();

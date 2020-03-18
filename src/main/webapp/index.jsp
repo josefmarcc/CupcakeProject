@@ -97,7 +97,7 @@
             </div>
             <label for="validationDefault04"></label>
             <select class="custom-select" id="validationDefault04" required>
-                <option selected disabled value="">Vælg antal...</option>
+                <option selected disabled name="qty" value="0">Vælg antal...</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -109,9 +109,14 @@
                 <option>9</option>
                 <option>10</option>
             </select>
-            <button type="button" class="btn btn-danger btn-style mt-2 mr-4">Læg i kurv</button>
-
-        </div>
+            <form action="FrontController" method="POST">
+                <input type="hidden" name="taget" value="addToBasket"/>
+                <button type="button" class="btn btn-danger btn-style mt-2 mr-4">Læg i kurv</button>
+                <div class="overskrift-size mt-5">
+                    Total pris: ${sessionScope.sum}
+                </div>
+            </form>
+            </div>
         <div class="col-lg-1"></div>
     </div>
 
