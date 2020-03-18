@@ -27,7 +27,7 @@
                 <button id="btn1" class="dropbtn btn-danger btn-style mb-2 btn-block">Topping</button>
                 <div class="dropdown-content">
                     <c:forEach var="topping" items="${toppings}">
-                        <a class="dropdown-item" onclick="doSelect('${topping.name}','btn1')">${topping.name}</a>
+                        <button class="dropdown-item" onclick="doSelect('${topping.name}','btn1')">${topping.name}</button>
                     </c:forEach>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                 <button id="btn2" class="dropbtn btn-danger btn-style mb-2 ml-4 btn-block">Bund</button>
                 <div class="dropdown-content ml-4 ">
                     <c:forEach var="bottom" items="${bottoms}">
-                        <a class="dropdown-item" onclick="doSelect('${bottom.name}','btn2')">${bottom.name}</a>
+                        <button class="dropdown-item" onclick="doSelect('${bottom.name}','btn2')">${bottom.name}</button>
                     </c:forEach>
                 </div>
             </div>
