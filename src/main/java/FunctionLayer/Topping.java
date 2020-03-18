@@ -19,6 +19,10 @@ public class Topping {
         return price;
     }
 
+    public int getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "Top{" + "name=" + name + ", price=" + price + '}';

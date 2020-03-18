@@ -96,18 +96,18 @@
                 Antal cupcakes til bestilling:
             </div>
             <label for="validationDefault04"></label>
-            <select class="custom-select" id="validationDefault04" required>
-                <option selected disabled name="qty" value="0">Vælg antal...</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
+            <select name="qty" class="custom-select" id="validationDefault04" required>
+                <option selected disabled  value="0">Vælg antal...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
             </select>
             <form action="FrontController" method="POST">
                 <input type="hidden" name="taget" value="addToBasket"/>
