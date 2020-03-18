@@ -47,13 +47,7 @@
                     myElement.innerText = text;
                 }
             </script>
-            <form>
-                <input type="hidden" name="taget" value="showcookie">
-                <button type="button" class="btn btn-danger btn-style mt-2">Se dit valg</button>
-                <button type="button" class="btn btn-danger btn-style mt-2">Fortryd</button>
-            </form>
         </div>
-
 
         <div class="col-lg-4">
 

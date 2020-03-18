@@ -19,6 +19,9 @@ public class Redirect extends Command {
                 new OrderList().execute(request, response);
                 return "admin";
 
+            case "index":
+                return "../index";
+
             default:
                 return "index";
         }
