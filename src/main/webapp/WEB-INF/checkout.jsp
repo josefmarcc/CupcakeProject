@@ -16,8 +16,8 @@
                         <th scope="col">Slet ordre</th>
                         <th scope="col">Topping</th>
                         <th scope="col">Bund</th>
-                        <th scope="col">Pris</th>
                         <th scope="col">Antal</th>
+                        <th scope="col">Pris</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -32,10 +32,10 @@
                                         value="${cupcake}"> X</button>
                             </form>
                         </td>
-                        <td><c:out value="Top: ${cupcake.top.name}"/></td>
-                        <td><c:out value="Bund: ${cupcake.bottom.name}"/></td>
-                        <td><c:out value="Antal ${sessionScope.qty}"/></td>
-                        <td><c:out value="Pris: ${sessionScope.totalprice} kr"/></td>
+                        <td><c:out value="${cupcake.top.name}"/></td>
+                        <td><c:out value="${cupcake.bottom.name}"/></td>
+                        <td><c:out value="${sessionScope.qty}"/></td>
+                        <td><c:out value="${sessionScope.totalprice} kr"/></td>
                     </tr>
                     </c:forEach>
                     </tr>
@@ -48,7 +48,7 @@
         <div class="col-lg-3">
             <div class="overskrift-size ">
                 Total pris:
-            <p><span class="price"><b>${order.sum} kr,-</b></span></p>
+            <p><span class="price"><b>${sessionScope.basketprice} kr,-</b></span></p>
             </div>
             <button type="button" class="btn btn-danger btn-style mt-2">Betal</button>
         </div>

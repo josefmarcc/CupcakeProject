@@ -10,11 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Basket extends Command {
+    private  List<Cupcake> basketList = new ArrayList<>();
+    private int qty;
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-        int qty = Integer.parseInt(request.getParameter("qty"));
+        qty = Integer.parseInt(request.getParameter("qty"));
         String topping_name = request.getParameter("toppingname");
         String bottom_name = request.getParameter("bottomname");
 
@@ -36,19 +38,15 @@ public class Basket extends Command {
 
         request.setAttribute("message","DU HAR LAGT DIN CUPCAKE(S) I KURVEN");
 
-
-        List<Cupcake> basketList = new ArrayList<>();
         basketList.add(cupcake);
 
         HttpSession session = request.getSession();
+        session.setAttribute("qty", qty);
         session.setAttribute("totalprice", new CupcakePrice().calculateCupcakePrice(cupcake, qty));
         session.setAttribute("basketlist", basketList);
-        session.setAttribute("qty", qty);
-
-
+        session.setAttribute("basketprice", new CupcakePrice().calculateBasketPrice(basketList,qty));
 
        // int orderlineid, int orderid, int qty, int sum, int toppingid, int bottomid
-
 
         return "../index";
     }
