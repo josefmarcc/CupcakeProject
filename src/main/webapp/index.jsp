@@ -10,10 +10,10 @@
     }
 %>
 <%
-    if( request.getServletContext().getAttribute("toppings") == null) {
+    if (request.getServletContext().getAttribute("toppings") == null) {
         request.getServletContext().setAttribute("toppings", ToppingsBottoms.getToppingsList());
     }
-    if( request.getServletContext().getAttribute("bottoms")== null) {
+    if (request.getServletContext().getAttribute("bottoms") == null) {
         request.getServletContext().setAttribute("bottoms", ToppingsBottoms.getBottomsList());
     }
 %>
@@ -28,19 +28,23 @@
 
 
         <div class="dropdown">
-            <button id="btn1" class="dropbtn btn-danger btn-style mb-2 btn-block">Topping</button>
+            <button id="btn1" name="toppingname" class="dropbtn btn-danger btn-style mb-2 btn-block">Topping
+            </button>
             <div class="dropdown-content">
                 <c:forEach var="topping" items="${toppings}">
-                    <button class="dropdown-item" value="${topping.id}" onclick="doSelect('${topping.name}','btn1')">${topping.name}</button>
+                    <button class="dropdown-item" value="${topping.id}"
+                            onclick="doSelect('${topping.name}','btn1')">${topping.name}</button>
                 </c:forEach>
             </div>
         </div>
 
         <div class="dropdown">
-            <button id="btn2" class="dropbtn btn-danger btn-style mb-2 ml-4 btn-block">Bund</button>
+            <button id="btn2" name="bottomname" class="dropbtn btn-danger btn-style mb-2 ml-4 btn-block">Bund
+            </button>
             <div class="dropdown-content ml-4 ">
                 <c:forEach var="bottom" items="${bottoms}">
-                    <button  class="dropdown-item" value="${bottom.id}" onclick="doSelect('${bottom.name}','btn2')">${bottom.name}</button>
+                    <button class="dropdown-item" value="${bottom.id}"
+                            onclick="doSelect('${bottom.name}','btn2')">${bottom.name}</button>
                 </c:forEach>
             </div>
         </div>
