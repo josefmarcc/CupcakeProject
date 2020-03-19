@@ -31,6 +31,7 @@ public class Basket extends Command {
         }
 
         Cupcake cupcake = new Cupcake(topping, bottom);
+
         request.setAttribute("totalprice", new CupcakePrice().calculateCupcakePrice(cupcake, qty));
 
         request.setAttribute("message","DU HAR LAGT DIN CUPCAKE(S) I KURVEN");
