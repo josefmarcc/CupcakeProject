@@ -122,7 +122,7 @@
 
                 <button type="input" class="btn btn-danger btn-style mt-2 mr-4">Læg i kurv</button>
                 <div class="overskrift-size mt-5">
-                    Total pris: ${requestScope.totalprice} kr
+                    Total pris: ${sessionScope.totalprice} kr
                 </div>
             </div>
         </form>

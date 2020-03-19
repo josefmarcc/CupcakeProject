@@ -34,7 +34,6 @@ public class Basket extends Command {
 
         Cupcake cupcake = new Cupcake(topping, bottom);
 
-        request.setAttribute("totalprice", new CupcakePrice().calculateCupcakePrice(cupcake, qty));
         request.setAttribute("message","DU HAR LAGT DIN CUPCAKE(S) I KURVEN");
 
 
@@ -42,7 +41,9 @@ public class Basket extends Command {
         basketList.add(cupcake);
 
         HttpSession session = request.getSession();
+        session.setAttribute("totalprice", new CupcakePrice().calculateCupcakePrice(cupcake, qty));
         session.setAttribute("basketlist", basketList);
+        session.setAttribute("qty", qty);
 
 
 
