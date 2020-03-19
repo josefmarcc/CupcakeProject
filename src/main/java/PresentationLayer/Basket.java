@@ -1,47 +1,39 @@
 package PresentationLayer;
 
-import FunctionLayer.Bottom;
-import FunctionLayer.LogicFacade;
-import FunctionLayer.LoginSampleException;
-import FunctionLayer.Topping;
+import FunctionLayer.*;
+import Util.CupcakePrice;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.util.List;
 
 public class Basket extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-        int order_id = 1;
-        int qty = (int)request.getAttribute("qty");
-        int sum = 20;
-        String topping_name = (String) request.getAttribute("toppingname");
-        String bottom_name = (String) request.getAttribute("bottomname");
+        int qty = Integer.parseInt(request.getParameter("qty"));
+        String topping_name = request.getParameter("toppingname");
+        String bottom_name = request.getParameter("bottomname");
 
-        int topping_id = 0;
-        int bottom_id = 0;
 
-        List<Topping> tops = LogicFacade.getToppings();
-        List<Bottom> bottoms = LogicFacade.getBottoms();
-
-        for(Topping top: tops){
-            if(topping_name.equalsIgnoreCase(top.getName())){
-                topping_id = top.getId();
+        Topping topping = null;
+        Bottom bottom = null;
+        for(Topping top : LogicFacade.getToppings()) {
+            if (topping_name.equals(top)){
+                topping = top;
+            }
+        }
+        for(Bottom bot : LogicFacade.getBottoms()) {
+            if (bottom_name.equals(bot)){
+                bottom = bot;
             }
         }
 
-        for(Bottom bottom: bottoms){
-            if(bottom_name.equalsIgnoreCase(bottom.getName())){
-                bottom_id = bottom.getId();
-            }
-        }
+        Cupcake cupcake = new Cupcake(topping, bottom);
+        request.setAttribute("totalprice",new CupcakePrice().calculateCupcakePrice(cupcake, qty));
 
-        LogicFacade.addToBasket(order_id, qty, sum, topping_id, bottom_id);
 
-        return "checkout";
+        return "index";
     }
 
 }

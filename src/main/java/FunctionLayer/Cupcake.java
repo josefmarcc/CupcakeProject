@@ -13,7 +13,6 @@ public class Cupcake {
         this.totalPrice = top.getPrice() + bottom.getPrice();
     }
 
-
     public Topping getTop() {
         return top;
     }

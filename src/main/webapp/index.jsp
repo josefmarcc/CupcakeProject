@@ -4,7 +4,7 @@
 
 <%!
     @Override
-    public void jspInit(){
+    public void jspInit() {
         //Fyr kode af til init. F.eks befolke datastruktur/lister etc.
         ToppingsBottoms.initLists();
     }
@@ -13,46 +13,47 @@
     request.setAttribute("toppings", ToppingsBottoms.getToppingsList());
     request.setAttribute("bottoms", ToppingsBottoms.getBottomsList());
 %>
-<%@include file="include/header.inc"%>
+<%@include file="include/header.inc" %>
 
-    <div class="row">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-3">
-            <div class="overskrift-size ml-5 mb-3">
-                Lav din cupcake:
-            </div>
-
-
-            <div class="dropdown">
-                <button id="btn1" class="dropbtn btn-danger btn-style mb-2 btn-block">Topping</button>
-                <div class="dropdown-content">
-                    <c:forEach var="topping" items="${toppings}">
-                        <button class="dropdown-item" onclick="doSelect('${topping.name}','btn1')">${topping.name}</button>
-                    </c:forEach>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button id="btn2" class="dropbtn btn-danger btn-style mb-2 ml-4 btn-block">Bund</button>
-                <div class="dropdown-content ml-4 ">
-                    <c:forEach var="bottom" items="${bottoms}">
-                        <button class="dropdown-item" onclick="doSelect('${bottom.name}','btn2')">${bottom.name}</button>
-                    </c:forEach>
-                </div>
-            </div>
-
-            <script>
-                function doSelect(text,btn){
-                    var myElement = document.getElementById(btn);
-                    myElement.innerText = text;
-                }
-            </script>
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-3">
+        <div class="overskrift-size ml-5 mb-3">
+            Lav din cupcake:
         </div>
 
-        <div class="col-lg-4">
 
-            <svg  class="cat" version="1.1" id="Lag_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                  viewBox="0 0 2834.6 2834.6" style="enable-background:new 0 0 2834.6 2834.6;" xml:space="preserve">
+        <div class="dropdown">
+            <button id="btn1" class="dropbtn btn-danger btn-style mb-2 btn-block">Topping</button>
+            <div class="dropdown-content">
+                <c:forEach var="topping" items="${toppings}">
+                    <button class="dropdown-item" value="${topping.id}" onclick="doSelect('${topping.name}','btn1')">${topping.name}</button>
+                </c:forEach>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button id="btn2" class="dropbtn btn-danger btn-style mb-2 ml-4 btn-block">Bund</button>
+            <div class="dropdown-content ml-4 ">
+                <c:forEach var="bottom" items="${bottoms}">
+                    <button  class="dropdown-item" value="${bottom.id}" onclick="doSelect('${bottom.name}','btn2')">${bottom.name}</button>
+                </c:forEach>
+            </div>
+        </div>
+
+        <script>
+            function doSelect(text, btn) {
+                var myElement = document.getElementById(btn);
+                myElement.innerText = text;
+            }
+        </script>
+    </div>
+
+    <div class="col-lg-4">
+
+        <svg class="cat" version="1.1" id="Lag_1" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 2834.6 2834.6" style="enable-background:new 0 0 2834.6 2834.6;" xml:space="preserve">
 
 <path id="XMLID_301_" class="top-color" d="M1757.5,449.5c82.1,58.7,135.2,149.8,145.7,250.2c4.9,47.2,7.5,91.6,8.1,117.2
    c0.7,28.9,13.3,37.1,41.2,35.5c180.3-10.8,342,79.7,412.9,241.8c64.4,147.2,46.4,289.7-52.8,418.9c-92.1,119.9-219.5,160-364.4,160
@@ -75,7 +76,7 @@
    c-23.5-1.4-48.2,19.8-49.9,42.8c-1.6,22.3,20.7,46.5,44.4,48.1C2073.8,1442.8,2096,1423.1,2097.4,1398.3z M1714.5,926.5
    c0.6-24.7-19.5-47.8-42.8-49.2c-23.7-1.4-49.5,23.1-49.4,46.9c0.1,21.5,24.7,47.2,45.8,48C1690.3,973,1713.9,949.8,1714.5,926.5z"></path>
 
-                <path id="XMLID_300_" class="bottom-color" d="M1372,2570.5c-197.9,0-395.8-0.8-593.7,0.7c-35.9,0.3-55.3-10.5-63.5-46.3
+            <path id="XMLID_300_" class="bottom-color" d="M1372,2570.5c-197.9,0-395.8-0.8-593.7,0.7c-35.9,0.3-55.3-10.5-63.5-46.3
    c-20.5-89.6-43.2-178.7-64.8-268.1c-37.7-156.4-75.1-312.9-113.1-469.3c-7.3-30.1,10.2-73.1,40.1-80.8c11.4-2.9,29.5,7.2,40,16.5
    c28.1,24.6,36.3,26,60.9-2c19.8-22.5,37.2-21,58.1-0.8c31.5,30.5,36.2,30,65.9-2c17.7-19.1,33.7-19.9,52.5-0.9
    c32.9,33.1,37.6,33.6,68.7,0.4c21.5-23,37.9-19.9,56.6,2.4c23.9,28.7,34.4,28.7,61,3.1c30-28.8,36-29,63.4,1.5
@@ -88,16 +89,15 @@
    C1372,2570,1372,2570.2,1372,2570.5z"></path>
 </svg>
 
+    </div>
+    <div class="col-lg-3">
+        <div class="overskrift-size">
+            Antal cupcakes til bestilling:
         </div>
 
-
-        <div class="col-lg-3">
-            <div class="overskrift-size">
-                Antal cupcakes til bestilling:
-            </div>
-            <label for="validationDefault04"></label>
-            <select name="qty" class="custom-select" id="validationDefault04" required>
-                <option selected disabled  value="0">Vælg antal...</option>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Vælg antal...</label>
+            <select class="form-control" value="qty" id="exampleFormControlSelect1">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -109,16 +109,18 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
             </select>
-            <form action="FrontController" method="POST">
-                <input type="hidden" name="taget" value="addToBasket"/>
-                <button type="input" class="btn btn-danger btn-style mt-2 mr-4">Læg i kurv</button>
-                <div class="overskrift-size mt-5">
-                    Total pris: ${sessionScope.sum}
-                </div>
-            </form>
+        </div>
+
+        <form action="FrontController" method="POST">
+            <input type="hidden" name="taget" value="addToBasket"/>
+            <button type="input" class="btn btn-danger btn-style mt-2 mr-4">Læg i kurv</button>
+            <div class="overskrift-size mt-5">
+                Total pris: ${requestScope.totalprice} kr
             </div>
-        <div class="col-lg-1"></div>
+        </form>
     </div>
+    <div class="col-lg-1"></div>
+</div>
 
 </div>
 <!-- Optional JavaScript -->
