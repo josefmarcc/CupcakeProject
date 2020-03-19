@@ -5,6 +5,8 @@ import Util.CupcakePrice;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Basket extends Command {
@@ -33,10 +35,18 @@ public class Basket extends Command {
         Cupcake cupcake = new Cupcake(topping, bottom);
 
         request.setAttribute("totalprice", new CupcakePrice().calculateCupcakePrice(cupcake, qty));
-
         request.setAttribute("message","DU HAR LAGT DIN CUPCAKE(S) I KURVEN");
 
-        
+
+        List<Cupcake> basketList = new ArrayList<>();
+        basketList.add(cupcake);
+
+        HttpSession session = request.getSession();
+        session.setAttribute("basketlist", basketList);
+
+
+
+       // int orderlineid, int orderid, int qty, int sum, int toppingid, int bottomid
 
 
         return "../index";
