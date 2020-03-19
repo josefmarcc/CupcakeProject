@@ -20,12 +20,12 @@ public class Basket extends Command {
         Bottom bottom = null;
 
         for (Topping top : LogicFacade.getToppings()) {
-            if (topping_name.equals(top)) {
+            if (topping_name.equals(top.getName())) {
                 topping = top;
             }
         }
         for (Bottom bot :  LogicFacade.getBottoms()){
-            if (bottom_name.equals(bot)) {
+            if (bottom_name.equals(bot.getName())) {
                 bottom = bot;
             }
         }
@@ -33,8 +33,12 @@ public class Basket extends Command {
         Cupcake cupcake = new Cupcake(topping, bottom);
         request.setAttribute("totalprice", new CupcakePrice().calculateCupcakePrice(cupcake, qty));
 
+        request.setAttribute("message","DU HAR LAGT DIN CUPCAKE(S) I KURVEN");
 
-        return "index";
+        
+
+
+        return "../index";
     }
 
 }
