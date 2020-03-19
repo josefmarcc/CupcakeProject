@@ -18,7 +18,7 @@
 
     <img src="images/header.png" class="img-fluid"/>
 
-    <nav class="navbar-expand-lg navbar">
+    <nav class="navbar-expand-lg navbar mb-5">
         <a class="navbar-brand" href="FrontController?taget=redirect&modtagerside=index">OLESKER CUPCAKES</a>
         <ul class="navbar-nav ml-auto">
             <!-- https://www.tutorialrepublic.com/snippets/preview.php?topic=bootstrap&file=navbar-dropdown-login-and-signup-form-with-social-buttons -->
