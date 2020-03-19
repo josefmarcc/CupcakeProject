@@ -22,7 +22,7 @@
 <div class="row">
     <div class="col-lg-1"></div>
     <div class="col-lg-3">
-        <div class="overskrift-size ml-5 mb-3">
+        <div class="overskrift-size mb-3">
             Lav din cupcake:
         </div>
 
@@ -31,7 +31,7 @@
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Toppings</label>
-                <select class="form-control dropbtn btn-danger btn-style mb-2 ml-4 btn-block" name="toppingname"
+                <select class="form-control dropbtn btn-danger btn-style mb-2 btn-block" name="toppingname"
                         id="topping">
                     <c:forEach var="topping" items="${applicationScope.toppings}">
                         <option value="${topping.name}">${topping.name}</option>
@@ -41,7 +41,7 @@
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Bunde</label>
-                <select class="form-control dropbtn btn-danger btn-style mb-2 ml-4 btn-block" name="bottomname"
+                <select class="form-control dropbtn btn-danger btn-style mb-2 btn-block" name="bottomname"
                         id="bottom">
                     <c:forEach var="bottom" items="${applicationScope.bottoms}">
                         <option value="${bottom.name}">${bottom.name}</option>
@@ -49,10 +49,6 @@
                 </select>
             </div>
 
-            <div class="alert alert-success mt-4 <c:if test = "${empty requestScope.message}">d-none</c:if> "
-                 role="alert">
-                ${requestScope.message}
-            </div>
             </div>
 
 
@@ -98,14 +94,14 @@
 
             </div>
             <div class="col-lg-3">
-                <div class="overskrift-size">
+                <div class="overskrift-size mb-3">
                     Antal cupcakes til bestilling:
                 </div>
 
 
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Vælg antal</label>
-                    <select class="form-control" name="qty" id="exampleFormControlSelect1">
+                    <select class="form-control dropbtn btn-danger btn-style btn-block" name="qty" id="exampleFormControlSelect1">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -123,6 +119,11 @@
                 <button type="input" class="btn btn-danger btn-style mt-2 mr-4">Læg i kurv</button>
                 <div class="overskrift-size mt-5">
                     Total pris: ${sessionScope.totalprice} kr
+                </div>
+
+                <div class="alert alert-success mt-4 <c:if test = "${empty requestScope.message}">d-none</c:if> "
+                     role="alert">
+                    ${requestScope.message}
                 </div>
             </div>
         </form>
