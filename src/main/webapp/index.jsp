@@ -53,6 +53,7 @@
                  role="alert">
                 ${requestScope.message}
             </div>
+            </div>
 
 
             <div class="col-lg-4">
@@ -125,12 +126,10 @@
                 </div>
             </div>
         </form>
-    </div>
     <div class="col-lg-1"></div>
 </div>
 
 
-</div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
