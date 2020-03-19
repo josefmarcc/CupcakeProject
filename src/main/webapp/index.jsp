@@ -10,8 +10,12 @@
     }
 %>
 <%
-    request.setAttribute("toppings", ToppingsBottoms.getToppingsList());
-    request.setAttribute("bottoms", ToppingsBottoms.getBottomsList());
+    if( request.getServletContext().getAttribute("toppings") == null) {
+        request.getServletContext().setAttribute("toppings", ToppingsBottoms.getToppingsList());
+    }
+    if( request.getServletContext().getAttribute("bottoms")== null) {
+        request.getServletContext().setAttribute("bottoms", ToppingsBottoms.getBottomsList());
+    }
 %>
 <%@include file="include/header.inc" %>
 
@@ -96,8 +100,8 @@
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Vælg antal...</label>
-            <select class="form-control" value="qty" id="exampleFormControlSelect1">
+            <label for="exampleFormControlSelect1">Vælg antal</label>
+            <select class="form-control" name="qty" id="exampleFormControlSelect1">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>

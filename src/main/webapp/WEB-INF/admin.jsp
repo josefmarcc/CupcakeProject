@@ -10,7 +10,9 @@
     }
 %>
 <%
-    request.setAttribute("customers", CustomerList.getCustomerList());
+    if(request.getServletContext().getAttribute("customers") == null) {
+        request.getServletContext().setAttribute("customers", CustomerList.getCustomerList());
+    }
 %>
 <%@include file="../include/header.inc" %>
 
