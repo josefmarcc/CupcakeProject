@@ -163,10 +163,10 @@ public class ProductMapper {
     public static void createOrder(int customerId){
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO cupcake.order (customer_id ) VALUES (?)";
+            String SQL = "INSERT INTO cupcake.order (customer_id) VALUES (" + customerId + ")";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, customerId);
-
+            //ps.setInt(1, customerId);
+            ps.execute();
             ps.close();
         } catch (SQLException | ClassNotFoundException ex) {
             System.out.println("FEJL! Kunne ikke finde lave en ordre");

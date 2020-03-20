@@ -15,10 +15,11 @@ public class Payment extends Command {
         ServletContext context = request.getSession().getServletContext();
 
         User user = (User) context.getAttribute("user");
-        int customerId = user.getId();
+        int customerId = LogicFacade.getCustomerId(user.getEmail());
         LogicFacade.createOrder(customerId);
-        int orderId = LogicFacade.getOrderId(user.getId());
 
+
+        int orderId = LogicFacade.getOrderId(user.getId());
         int qty = (int) session.getAttribute("qty");
         double sum = (double) session.getAttribute("price");
         Topping top = (Topping) session.getAttribute("top");
@@ -31,10 +32,4 @@ public class Payment extends Command {
         return "checkout";
     }
 
-    public static void main(String[] args) {
-        LogicFacade.createOrder(2);
-        int orderId = LogicFacade.getOrderId(1);
-        LogicFacade.addToBasket(orderId, 2, 50, 3, 4);
-    }
-        // addToBasket(int order_id, int qty, int sum, int topping_id, int bottom_id) {
 }

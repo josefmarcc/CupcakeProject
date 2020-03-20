@@ -82,6 +82,7 @@ public class UserMapper {
     }
 
 
+
     public static void deleteMember(String email) {
         try {
             String SQL = "DELETE FROM cupcake.customer WHERE email = (?)";
