@@ -23,6 +23,7 @@ abstract class Command {
         commands.put("addcredit", new AddCredit());
         commands.put( "redirect", new Redirect() );
         commands.put("addToBasket", new Basket());
+        commands.put("deletecupcake", new DeleteCupcake());
     }
 
     static Command from( HttpServletRequest request ) {

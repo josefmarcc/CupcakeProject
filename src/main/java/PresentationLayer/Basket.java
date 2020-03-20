@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Basket extends Command {
-    private  List<Cupcake> basketList = new ArrayList<>();
-    private  List<Double> priceList = new ArrayList<>();
-    private  List<Integer> qtyList = new ArrayList<>();
+    private static ArrayList<Cupcake> basketList = new ArrayList<>();
+    private static ArrayList<Double> priceList = new ArrayList<>();
+    private static ArrayList<Integer> qtyList = new ArrayList<>();
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
@@ -55,4 +55,11 @@ public class Basket extends Command {
         return "../index";
     }
 
+    public static ArrayList<Cupcake> getBasketList() {
+        return basketList;
+    }
+
+    public static void setBasketList(ArrayList<Cupcake> basketList) {
+        Basket.basketList = basketList;
+    }
 }
