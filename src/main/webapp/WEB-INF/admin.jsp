@@ -1,4 +1,7 @@
 <%@ page import="FunctionLayer.CustomerList" %>
+<%@ page import="PresentationLayer.OrderList" %>
+<%@ page import="FunctionLayer.LogicFacade" %>
+<%@ page import="FunctionLayer.Orderline" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
@@ -7,13 +10,20 @@
     public void jspInit() {
         //Fyr kode af til init. F.eks befolke datastruktur/lister etc.
         CustomerList.initLists();
+        Orderline.initLists();
     }
 %>
 <%
-    if(request.getServletContext().getAttribute("customers") == null) {
-        request.getServletContext().setAttribute("customers", CustomerList.getCustomerList());
+    if (request.getServletContext().getAttribute("orderlist") == null) {
+        request.getServletContext().setAttribute("orderlist", Orderline.orderList);
+    }
+    if (request.getServletContext().getAttribute("customerList") == null) {
+        request.getServletContext().setAttribute("customerList", CustomerList.customerList);
     }
 %>
+
+
+
 <%@include file="../include/header.inc" %>
 
 <h1 class="text-center mb-4 mt-4"> Administrator side </h1>
@@ -36,7 +46,7 @@
                     <tbody>
                     <tr>
                         <!-- https://www.codejava.net/java-ee/jsp/how-to-list-records-in-a-database-table-using-jsp-and-jstl -->
-                        <c:forEach var="order" items="${requestScope.orderlist}">
+                        <c:forEach var="order" items="${applicationScope.orderlist}">
                     <tr>
                         <td>
                             <form action="FrontController" method="post">
@@ -91,7 +101,7 @@
                     <tbody>
                     <tr>
                         <!-- https://www.codejava.net/java-ee/jsp/how-to-list-records-in-a-database-table-using-jsp-and-jstl -->
-                        <c:forEach var="customer" items="${customers}">
+                        <c:forEach var="customer" items="${applicationScope.customerList}">
                     <tr>
                         <td><c:out value="${customer.id}"/></td>
                         <td><c:out value="${customer.email}"/></td>

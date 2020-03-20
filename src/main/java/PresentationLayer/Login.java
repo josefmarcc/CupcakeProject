@@ -1,11 +1,11 @@
 package PresentationLayer;
 
-import FunctionLayer.LogicFacade;
-import FunctionLayer.LoginSampleException;
-import FunctionLayer.User;
+import FunctionLayer.*;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 /**
  The purpose of Login is to...
@@ -26,7 +26,8 @@ public class Login extends Command {
         session.setAttribute("credit", user.showBalance());
 
         switch (email){
-            case "admin": return "admin";
+            case "admin":
+                return "admin";
             default: return "../index";
         }
 

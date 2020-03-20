@@ -38,7 +38,7 @@ CREATE TABLE `bottom` (
 
 LOCK TABLES `bottom` WRITE;
 /*!40000 ALTER TABLE `bottom` DISABLE KEYS */;
-INSERT INTO `bottom` VALUES (1,'Chokolade',5),(2,'Vanilje',5),(3,'Nutmeg',5),(4,'Pistacio',6),(5,'Almond',7);
+INSERT INTO `bottom` VALUES (1,'Chokolade',5),(2,'Vanilje',5),(3,'Muskatnød',5),(4,'Pistacie',6),(5,'Mandel',7);
 /*!40000 ALTER TABLE `bottom` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,7 +151,7 @@ CREATE TABLE `topping` (
 
 LOCK TABLES `topping` WRITE;
 /*!40000 ALTER TABLE `topping` DISABLE KEYS */;
-INSERT INTO `topping` VALUES (1,'Chokolade',5),(2,'Blåbær',5),(3,'Raspberry',5),(4,'Crispy',6),(5,'Strawberry',6),(6,'Rum/Raisin',7),(7,'Orange',8),(8,'Lemon',8),(9,'Blue Cheese',9);
+INSERT INTO `topping` VALUES (1,'Chokolade',5),(2,'Blåbær',5),(3,'Hindbær',5),(4,'Sprød',6),(5,'Jordbær',6),(6,'Rom/Rosiner',7),(7,'Appelsin',8),(8,'Citron',8),(9,'Blå Ost',9);
 /*!40000 ALTER TABLE `topping` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

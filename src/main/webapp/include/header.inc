@@ -55,13 +55,6 @@
                 <a class="nav-link " href="FrontController?taget=redirect&modtagerside=checkout">KURV</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="FrontController?taget=redirect&modtagerside=admin">ADMIN</a>
-<!--                <form name="admin" action="FrontController" method="POST">
-                    <input type="hidden" name="taget" value="orderlist">
-                    <input type="submit" class="navbarButton" value="ADMIN"/>
-                </form>-->
-            </li>
 
         </ul>
     </nav>
