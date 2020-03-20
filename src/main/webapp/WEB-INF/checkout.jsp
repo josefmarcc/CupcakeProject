@@ -23,19 +23,19 @@
                     <tbody>
                     <tr>
                         <!-- https://www.codejava.net/java-ee/jsp/how-to-list-records-in-a-database-table-using-jsp-and-jstl -->
-                        <c:forEach var="cupcake" items="${sessionScope.basketlist}">
+                        <c:forEach var="cupcake" items="${sessionScope.basketlist}" varStatus="loop">
                     <tr>
                         <td>
                             <form action="FrontController" method="post">
-                                <input type="hidden" name="taget" value="deleteorder">
+                                <input type="hidden" name="taget" value="deletecupcake">
                                 <button class="btn btn-danger btn-style deletebutton" name="deletebutton"
                                         value="${cupcake}"> X</button>
                             </form>
                         </td>
                         <td><c:out value="${cupcake.top.name}"/></td>
                         <td><c:out value="${cupcake.bottom.name}"/></td>
-                        <td><c:out value="${sessionScope.qty}"/></td>
-                        <td><c:out value="${sessionScope.totalprice} kr"/></td>
+                        <td><c:out value="${sessionScope.qtyList.get(loop.index)}"/></td>
+                        <td><c:out value="${sessionScope.priceList.get(loop.index)} kr"/></td>
                     </tr>
                     </c:forEach>
                     </tr>

@@ -12,10 +12,10 @@ public class CupcakePrice {
         return cupcake.getTotalPrice() * antal;
     }
 
-    public double calculateBasketPrice(List<Cupcake> basketList, int qty){
+    public double calculateBasketPrice(List<Cupcake> basketList, List<Integer> qty){
         double price = 0;
-        for(Cupcake cupcakes : basketList){
-            price += calculateCupcakePrice(cupcakes, qty);
+        for(int i = 0; i < basketList.size() ; i++){
+            price += calculateCupcakePrice(basketList.get(i), qty.get(i));
         }
         return price;
     }
