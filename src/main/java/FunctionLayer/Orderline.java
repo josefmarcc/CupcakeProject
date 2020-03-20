@@ -2,9 +2,21 @@ package FunctionLayer;
 
 import DBAccess.ProductMapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Orderline {
 
+
     private final int orderlineid, orderid,qty,sum,toppingid,bottomid;
+
+    public static ArrayList<Orderline> orderList;
+    public static void initLists() {
+        if (orderList == null) {
+            orderList = LogicFacade.getOrderList();
+        }
+    }
+
 
     public Orderline(int orderlineid, int orderid, int qty, int sum, int toppingid, int bottomid) {
         this.orderlineid = orderlineid;
