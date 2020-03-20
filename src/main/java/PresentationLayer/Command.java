@@ -24,6 +24,7 @@ abstract class Command {
         commands.put( "redirect", new Redirect() );
         commands.put("addToBasket", new Basket());
         commands.put("deletecupcake", new DeleteCupcake());
+        commands.put("payment", new Payment());
     }
 
     static Command from( HttpServletRequest request ) {

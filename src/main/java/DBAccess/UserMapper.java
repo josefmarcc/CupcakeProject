@@ -21,8 +21,6 @@ import java.util.List;
 public class UserMapper {
 
 
-
-
     public static void createUser(User user) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -62,6 +60,26 @@ public class UserMapper {
         }
     }
 
+    public static int getCustomerId(String email){
+        int customerId = 0;
+
+        try {
+            Connection con = Connector.connection();
+            Statement stmt = con.createStatement();
+            String SQL = "SELECT * FROM cupcake.customer where email = '" + email + "';";
+            ResultSet rs = stmt.executeQuery(SQL);
+
+            customerId = 0;
+
+            while (rs.next()) {
+                customerId = rs.getInt("customer_id");
+            }
+            return customerId;
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex);
+        }
+        return customerId;
+    }
 
 
     public static void deleteMember(String email) {

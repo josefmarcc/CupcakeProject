@@ -29,7 +29,7 @@
                         Retype Password:<br>
                         <input type="password" name="password2" class="form-control" value="sesam">
                         <br>
-                        <input type="submit" class="btn btn-danger btn-style mt-2" value="Submit">
+                        <input type="submit" class="btn btn-danger btn-style mt-2" value="Registrer dig her">
                     </form>
                 </td>
                 </tr>

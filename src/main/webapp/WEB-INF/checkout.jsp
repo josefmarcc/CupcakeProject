@@ -50,7 +50,11 @@
                 Total pris:
             <p><span class="price"><b>${sessionScope.basketprice} kr,-</b></span></p>
             </div>
-            <button type="button" class="btn btn-danger btn-style mt-2">Betal</button>
+            <form action="FrontController" method="post" name="payment">
+                <input type="hidden" name="taget" value="payment">
+                <input type="submit" class="btn btn-danger btn-style mt-2" value="Betal">
+            </form>
+
         </div>
         <div class="col-lg-1"></div>
     </div>

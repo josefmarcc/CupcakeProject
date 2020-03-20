@@ -23,7 +23,7 @@
         <ul class="navbar-nav ml-auto">
             <!-- https://www.tutorialrepublic.com/snippets/preview.php?topic=bootstrap&file=navbar-dropdown-login-and-signup-form-with-social-buttons -->
             <li class="nav-item ">
-            <a class="nav-link">${sessionScope.email} </a>
+            <a class="nav-link"> ${sessionScope.email} </a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link"> ${sessionScope.credit} </a>

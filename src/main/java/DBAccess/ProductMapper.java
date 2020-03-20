@@ -86,6 +86,27 @@ public class ProductMapper {
         return "FEJLBUND";
     }
 
+    public static int getOrderId(int customerId){
+       int orderId = 0;
+
+        try {
+            Connection con = Connector.connection();
+            Statement stmt = con.createStatement();
+            String SQL = "SELECT * FROM cupcake.order where customer_id = " + customerId + ";";
+            ResultSet rs = stmt.executeQuery(SQL);
+
+            orderId = 0;
+
+            while (rs.next()) {
+                orderId = rs.getInt("order_id");
+            }
+            return orderId;
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex);
+        }
+        return orderId;
+    }
+
 
     public static ArrayList<Orderline> getOrderList() {
         ArrayList<Orderline> orderList = new ArrayList();
@@ -139,6 +160,20 @@ public class ProductMapper {
         }
     }
 
+    public static void createOrder(int customerId){
+        try {
+            Connection con = Connector.connection();
+            String SQL = "INSERT INTO cupcake.order (customer_id ) VALUES (?)";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, customerId);
+
+            ps.close();
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println("FEJL! Kunne ikke finde lave en ordre");
+        }
+    }
+
+
     public static void addToBasket(int order_id, int qty, int sum, int topping_id, int bottom_id) {
         try {
             Connection con = Connector.connection();
@@ -152,7 +187,7 @@ public class ProductMapper {
             ps.execute();
             ps.close();
         } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println("FEJL! Kunne ikke finde bruger");
+            System.out.println("FEJL! Kunne ikke finde oprette orderline");
         }
     }
 

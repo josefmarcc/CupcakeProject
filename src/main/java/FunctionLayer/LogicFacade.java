@@ -57,4 +57,16 @@ public class LogicFacade {
     public static List<User> getCustomerList(){
         return UserMapper.getCustomerList();
     }
+
+    public static int getCustomerId(String email){
+        return UserMapper.getCustomerId(email);
+    }
+
+    public static void createOrder(int customerId){
+        ProductMapper.createOrder(customerId);
+    }
+
+    public static int getOrderId(int customerId){
+        return ProductMapper.getOrderId(customerId);
+    }
 }

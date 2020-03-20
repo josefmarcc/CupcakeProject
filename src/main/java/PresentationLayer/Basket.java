@@ -2,6 +2,7 @@ package PresentationLayer;
 
 import FunctionLayer.*;
 import Util.CupcakePrice;
+import sun.rmi.runtime.Log;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,6 +52,8 @@ public class Basket extends Command {
         session.setAttribute("qtyList", qtyList);
         session.setAttribute("basketlist", basketList);
         session.setAttribute("basketprice", new CupcakePrice().calculateBasketPrice(basketList,qtyList));
+        session.setAttribute("top", topping);
+        session.setAttribute("bot",bottom);
 
 
         return "../index";
