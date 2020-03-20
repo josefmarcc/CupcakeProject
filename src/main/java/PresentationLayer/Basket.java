@@ -52,6 +52,7 @@ public class Basket extends Command {
         session.setAttribute("basketlist", basketList);
         session.setAttribute("basketprice", new CupcakePrice().calculateBasketPrice(basketList,qtyList));
 
+
         return "../index";
     }
 

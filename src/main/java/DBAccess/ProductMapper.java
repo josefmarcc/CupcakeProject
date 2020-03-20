@@ -9,30 +9,6 @@ import java.util.List;
 
 public class ProductMapper {
 
-
-    public static Cupcake makeCupcake(Topping top, Bottom bot) {
-        return new Cupcake(top, bot);
-    }
-
-    public static Topping getTop(String name) {
-        if (name != null) {
-            int price = getToppingPrice(name);
-            Topping top = new Topping(name, price);
-            return top;
-        }
-        return null;
-    }
-
-    public static Bottom getBottom(String name) {
-        if (name != null) {
-            int price = getBottomPrice(name);
-            Bottom bot = new Bottom(name, price);
-            return bot;
-        }
-        return null;
-    }
-
-
     public static List<Topping> getTops() {
         List<Topping> toppings = new ArrayList<>();
         try {
@@ -70,45 +46,6 @@ public class ProductMapper {
             System.out.println(ex);
         }
         return bottoms;
-    }
-
-    public static int getToppingPrice(String name) {
-        try {
-            Connection con = Connector.connection();
-            Statement stmt = con.createStatement();
-            String SQL = "SELECT price FROM cupcake.topping + WHERE cupcake.topping.name = " + name + ";";
-            ResultSet rs = stmt.executeQuery(SQL);
-
-            int price = 0;
-
-            while (rs.next()) {
-                price = rs.getInt("price");
-            }
-            return price;
-        } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println(ex);
-        }
-        return 0;
-    }
-
-
-    public static int getBottomPrice(String name) {
-        try {
-            Connection con = Connector.connection();
-            Statement stmt = con.createStatement();
-            String SQL = "SELECT price FROM cupcake.bottom + WHERE cupcake.bottom.name = " + name + ";";
-            ResultSet rs = stmt.executeQuery(SQL);
-
-            int price = 0;
-
-            while (rs.next()) {
-                price = rs.getInt("price");
-            }
-            return price;
-        } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println(ex);
-        }
-        return 0;
     }
 
     public static String getToppingName(int id) {

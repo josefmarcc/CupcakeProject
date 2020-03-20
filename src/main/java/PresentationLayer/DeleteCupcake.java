@@ -14,7 +14,7 @@ public class DeleteCupcake extends Command {
         ArrayList<Cupcake> basketList = Basket.getBasketList();
         HttpSession session = request.getSession();
 
-        Cupcake cupcakeToRemove = (Cupcake) request.getParameter("deletebutton");
+        Cupcake cupcakeToRemove = (Cupcake) session.getAttribute("deletebutton");
         Cupcake cupcake = (Cupcake)session.getAttribute("cupcake");
         if(cupcakeToRemove == cupcake) {
             basketList.remove(cupcakeToRemove);
