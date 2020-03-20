@@ -11,12 +11,13 @@ import java.util.List;
 
 public class Basket extends Command {
     private  List<Cupcake> basketList = new ArrayList<>();
-    private int qty;
+    private  List<Double> priceList = new ArrayList<>();
+    private  List<Integer> qtyList = new ArrayList<>();
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
-        qty = Integer.parseInt(request.getParameter("qty"));
+        int qty = Integer.parseInt(request.getParameter("qty"));
         String topping_name = request.getParameter("toppingname");
         String bottom_name = request.getParameter("bottomname");
 
@@ -38,15 +39,18 @@ public class Basket extends Command {
 
         request.setAttribute("message","DU HAR LAGT DIN CUPCAKE(S) I KURVEN");
 
+        double price = new CupcakePrice().calculateCupcakePrice(cupcake, qty);
         basketList.add(cupcake);
+        qtyList.add(qty);
+        priceList.add(price);
 
         HttpSession session = request.getSession();
         session.setAttribute("qty", qty);
-        session.setAttribute("totalprice", new CupcakePrice().calculateCupcakePrice(cupcake, qty));
+        session.setAttribute("price", price);
+        session.setAttribute("priceList", priceList);
+        session.setAttribute("qtyList", qtyList);
         session.setAttribute("basketlist", basketList);
-        session.setAttribute("basketprice", new CupcakePrice().calculateBasketPrice(basketList,qty));
-
-       // int orderlineid, int orderid, int qty, int sum, int toppingid, int bottomid
+        session.setAttribute("basketprice", new CupcakePrice().calculateBasketPrice(basketList,qtyList));
 
         return "../index";
     }
