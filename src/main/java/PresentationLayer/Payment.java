@@ -28,6 +28,8 @@ public class Payment extends Command {
         int bottom_id = bot.getId();
 
         LogicFacade.addToBasket(orderId, qty, (int)sum, topping_id, bottom_id);
+        
+
 
         return "checkout";
     }
