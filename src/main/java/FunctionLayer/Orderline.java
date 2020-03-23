@@ -3,12 +3,11 @@ package FunctionLayer;
 import DBAccess.ProductMapper;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Orderline {
 
 
-    private final int orderlineid, orderid,qty,sum,toppingid,bottomid;
+    private int orderlineid, orderid,qty,sum,toppingid,bottomid;
 
     public static ArrayList<Orderline> orderList;
     public static void initLists() {
@@ -26,8 +25,6 @@ public class Orderline {
         this.bottomid = bottomid;
     }
 
-
-
     public int getOrderlineid() {
         return orderlineid;
     }
@@ -42,6 +39,10 @@ public class Orderline {
 
     public int getSum() {
         return sum;
+    }
+
+    public void setSum(int sum){
+        this.sum = sum;
     }
 
     public int getToppingid() {

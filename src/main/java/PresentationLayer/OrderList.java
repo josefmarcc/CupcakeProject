@@ -16,10 +16,14 @@ public class OrderList extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+        HttpSession session = request.getSession();
+
 
         ArrayList<Orderline> orderlist = LogicFacade.getOrderList();
-
-        request.setAttribute("orderlist",orderlist);
+        for (Orderline ol: orderlist){
+                ol.setSum((Integer) session.getAttribute("admin"));
+        }
+        request.getServletContext().setAttribute("orderlist",orderlist);
 
         return "admin";
     }
