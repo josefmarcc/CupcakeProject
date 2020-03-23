@@ -18,9 +18,11 @@ public class ProductMapper {
             ResultSet rs = stmt.executeQuery(SQL);
 
             while (rs.next()) {
+                int id = rs.getInt("topping_id");
                 String name = rs.getString("name");
                 int price = rs.getInt("price");
                 Topping top = new Topping(name, price);
+                top.setId(id);
                 toppings.add(top);
             }
         } catch (SQLException | ClassNotFoundException ex) {
@@ -37,9 +39,11 @@ public class ProductMapper {
             String SQL = "SELECT * FROM cupcake.bottom";
             ResultSet rs = stmt.executeQuery(SQL);
             while (rs.next()) {
+                int id = rs.getInt("bottom_id");
                 String name = rs.getString("name");
                 int price = rs.getInt("price");
                 Bottom bottom = new Bottom(name, price);
+                bottom.setId(id);
                 bottoms.add(bottom);
             }
         } catch (SQLException | ClassNotFoundException ex) {
@@ -146,17 +150,17 @@ public class ProductMapper {
         }
     }
 
-    public static void addCredit(String email, int credit) {
+    public static void updateCredit(String email, int credit) {
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE cupcake.customer SET credit = credit + (?) WHERE email = (?)";
+            String SQL = "UPDATE cupcake.customer SET credit = (?) WHERE email = (?)";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, credit);
             ps.setString(2, email);
             ps.execute();
             ps.close();
         } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println("FEJL! Kunne ikke finde bruger");
+            System.out.println("FEJL! Kunne ikke opdatere credit");
         }
     }
 

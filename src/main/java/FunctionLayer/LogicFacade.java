@@ -4,7 +4,6 @@ import DBAccess.UserMapper;
 import DBAccess.ProductMapper;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -49,7 +48,7 @@ public class LogicFacade {
     }
 
     public static void addCredit(String email, int credit){
-        ProductMapper.addCredit(email,credit);
+        ProductMapper.updateCredit(email,credit);
     }
 
     public static void addToBasket(int order_id, int qty, int sum, int topping_id, int bottom_id) { ProductMapper.addToBasket(order_id, qty, sum, topping_id, bottom_id);}

@@ -23,6 +23,10 @@ public class Topping {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Top{" + "name=" + name + ", price=" + price + '}';

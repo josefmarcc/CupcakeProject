@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import DBAccess.ProductMapper;
 import FunctionLayer.*;
 import sun.rmi.runtime.Log;
 
@@ -15,21 +16,35 @@ public class Payment extends Command {
         ServletContext context = request.getSession().getServletContext();
 
         User user = (User) context.getAttribute("user");
-        int customerId = LogicFacade.getCustomerId(user.getEmail());
-        LogicFacade.createOrder(customerId);
+        double totalPrice = (double) session.getAttribute("basketprice");
 
+        if(user.getCredit() >= totalPrice) {
+            String email = user.getEmail();
+            int customerId = LogicFacade.getCustomerId(email);
+            LogicFacade.createOrder(customerId);
 
-        int orderId = LogicFacade.getOrderId(user.getId());
-        int qty = (int) session.getAttribute("qty");
-        double sum = (double) session.getAttribute("price");
-        Topping top = (Topping) session.getAttribute("top");
-        Bottom bot = (Bottom) session.getAttribute("bot");
-        int topping_id = top.getId();
-        int bottom_id = bot.getId();
+            double sum = (double) session.getAttribute("price");
+            int orderId = LogicFacade.getOrderId(user.getId());
+            int qty = (int) session.getAttribute("qty");
 
-        LogicFacade.addToBasket(orderId, qty, (int)sum, topping_id, bottom_id);
-        
+            Topping top = (Topping) session.getAttribute("top");
+            Bottom bot = (Bottom) session.getAttribute("bot");
+            int topping_id = top.getId();
+            int bottom_id = bot.getId();
 
+            LogicFacade.addToBasket(orderId, qty, (int) sum, topping_id, bottom_id);
+            String accepted = "DIN ORDRER ER BLEVET BETALT OG KAN HENTES OM 10 MIN";
+            request.setAttribute("message", accepted);
+
+            int updatedCredit = (int) (user.getCredit() - totalPrice);
+            ProductMapper.updateCredit(email,updatedCredit);
+
+            user.setCredit(updatedCredit);
+            session.setAttribute("credit", user.showBalance());
+        } else {
+            String rejected = "DER ER ET PROBLEM MED DIN ØKONOMISKE SITUATION";
+            request.setAttribute("message", rejected);
+        }
 
         return "checkout";
     }
