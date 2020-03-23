@@ -8,7 +8,7 @@
 <div class="container col-lg-12">
     <div class="row">
         <div class="col-2"></div>
-        <div class="col-lg-3">
+        <div class="col-lg-5">
             <div class="table-wrap">
                 <table class="table table-borderless table.responsive">
                     <thead>
@@ -43,8 +43,7 @@
                 </table>
             </div>
         </div>
-
-        <div class="col-2"></div>
+        <div class="col-1"></div>
         <div class="col-lg-3">
             <div class="overskrift-size ">
                 Total pris:
