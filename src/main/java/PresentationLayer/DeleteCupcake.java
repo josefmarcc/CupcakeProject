@@ -16,27 +16,18 @@ public class DeleteCupcake extends Command {
         HttpSession session = request.getSession();
         ArrayList<Cupcake> basketList = (ArrayList<Cupcake>) session.getAttribute("basketlist");
 
-        Cupcake cupcakeToRemove = (Cupcake) session.getAttribute("deletecupcakebutton");
-        basketList.remove(cupcakeToRemove);
+        String cupcakeToRemove =  request.getParameter("deletecupcakebutton");
 
-        session.getServletContext().setAttribute("basketlist", basketList);
+        for(int i = 0; i < basketList.size(); i++) {
+            if(cupcakeToRemove.equals(basketList.get(i).toString())) {
+                basketList.remove(i);
+            }
+        }
+
+        session.setAttribute("basketlist", basketList);
 
         return "checkout";
 
     }
 
-    public static void main(String[] args) {
-        ArrayList<Cupcake> basketList = new ArrayList<>();
-        Topping top = new Topping("Chokolade", 5);
-        Bottom bot = new Bottom("Chokolade", 5);
-
-        Cupcake cupcakeToRemove = new Cupcake(top,bot);
-        basketList.add(cupcakeToRemove);
-        Cupcake cupcake = cupcakeToRemove;
-        System.out.println(basketList);
-        if(cupcakeToRemove == cupcake) {
-            basketList.remove(cupcakeToRemove);
-        }
-        System.out.println(basketList);
-    }
 }

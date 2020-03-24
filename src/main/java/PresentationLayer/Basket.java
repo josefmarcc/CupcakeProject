@@ -55,7 +55,6 @@ public class Basket extends Command {
         session.setAttribute("top", topping);
         session.setAttribute("bot",bottom);
 
-
         return "../index";
     }
 
