@@ -28,8 +28,8 @@
                         <td>
                             <form action="FrontController" method="post">
                                 <input type="hidden" name="taget" value="deletecupcake">
-                                <button class="btn btn-danger btn-style deletebutton" name="deletebutton"
-                                        value="${cupcake}"> X</button>
+                                <button class="btn btn-danger btn-style deletebutton" name="deletecupcakebutton"
+                                        value="${cupcake}">X</button>
                             </form>
                         </td>
                         <td><c:out value="${cupcake.top.name}"/></td>

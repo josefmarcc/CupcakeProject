@@ -21,7 +21,7 @@ public class OrderList extends Command {
 
         ArrayList<Orderline> orderlist = LogicFacade.getOrderList();
         for (Orderline ol: orderlist){
-                ol.setSum((Integer) session.getAttribute("admin"));
+                ol.setSum((Integer) session.getAttribute("deletebutton"));
         }
         request.getServletContext().setAttribute("orderlist",orderlist);
 
