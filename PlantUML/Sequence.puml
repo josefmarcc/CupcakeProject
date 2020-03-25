@@ -17,5 +17,5 @@ Payment ->  ProductMapper: execute()
 ProductMapper -> CupcakeDatabase: updateCreditQuery()
 CupcakeDatabase -> FrontController: OK
 FrontController -> Checkout.jsp: forward
-Checkout.jsp -> User: Køb Godkendt
+Checkout.jsp -> Buyer: Køb Godkendt
 @enduml
