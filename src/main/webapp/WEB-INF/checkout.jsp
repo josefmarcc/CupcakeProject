@@ -53,13 +53,12 @@
                 <input type="hidden" name="taget" value="payment">
                 <input type="submit" class="btn btn-danger btn-style mt-2" value="Betal">
             </form>
-
-        </div>
-        <div class="col-lg-1">
             <div class="alert alert-success mt-4 <c:if test = "${empty requestScope.message}">d-none</c:if> "
                  role="alert">
                 ${requestScope.message}
             </div>
+        </div>
+        <div class="col-lg-1"></div>
 
         </div>
     </div>
