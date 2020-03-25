@@ -1,19 +1,21 @@
 @startuml
-actor User
-boundary Index.jsp
-participant login.class
+actor Buyer
+boundary Checkout.jsp
 participant FrontController
-participant UserMapper
+participant Command
+participant Payment
+participant ProductMapper
 database CupcakeDatabase
 
 
-User -> Index.jsp : username & password
-Index.jsp -> FrontController: http POST login
-FrontController -> UserMapper: validate()
-UserMapper ->  CupcakeDatabase: executeQuery()
-CupcakeDatabase -> UserMapper: resultset
-UserMapper -> UserMapper: validate resultset
-UserMapper -> FrontController: OK
-FrontController -> Index.jsp: forward
-Index.jsp -> User: Welcome
+Buyer -> Checkout.jsp : Betal
+Checkout.jsp -> FrontController: Request
+FrontController -> Command: getCommand
+Command -> FrontController: returnCommand
+FrontController -> Payment: executeCommand
+Payment ->  ProductMapper: execute()
+ProductMapper -> CupcakeDatabase: updateCreditQuery()
+CupcakeDatabase -> FrontController: OK
+FrontController -> Checkout.jsp: forward
+Checkout.jsp -> User: Køb Godkendt
 @enduml
