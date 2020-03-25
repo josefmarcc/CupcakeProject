@@ -52,10 +52,10 @@
             </li>
             </li>
             <li class="nav-item ">
-                <a class="nav-link " href="FrontController?taget=redirect&modtagerside=checkout">KURV</a>
+                <a class="nav-link " href="FrontController?taget=logout">LOGUD</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link " href="FrontController?taget=logout">LOGUD</a>
+                <a class="nav-link " href="FrontController?taget=redirect&modtagerside=checkout">KURV</a>
             </li>
 
         </ul>
