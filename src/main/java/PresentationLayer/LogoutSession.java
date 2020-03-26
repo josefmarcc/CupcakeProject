@@ -13,7 +13,10 @@ public class LogoutSession extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
         HttpSession session = request.getSession();
+        session.setAttribute("credit", null);
+        session.setAttribute("email", null);
         session.invalidate();
+
         return "../index";
     }
 }
