@@ -8,6 +8,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 public class Payment extends Command {
     @Override
@@ -47,6 +48,10 @@ public class Payment extends Command {
                 user.setCredit(updatedCredit);
                 session.setAttribute("credit", user.showBalance());
 
+                ArrayList<Cupcake> basketlist = (ArrayList<Cupcake>) session.getAttribute("basketlist");
+                basketlist.clear();
+                session.setAttribute("basketlist", basketlist);
+
             } else {
                 String rejected = "DER ER ET PROBLEM MED DIN ØKONOMISKE SITUATION";
                 request.setAttribute("message", rejected);
@@ -55,5 +60,6 @@ public class Payment extends Command {
 
         return "checkout";
     }
+
 
 }
