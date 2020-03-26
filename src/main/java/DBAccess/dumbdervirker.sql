@@ -1,8 +1,6 @@
-CREATE DATABASE  IF NOT EXISTS `cupcake` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `cupcake`;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
--- Host: localhost    Database: cupcake2
+-- Host: localhost    Database: cupcake
 -- ------------------------------------------------------
 -- Server version	8.0.18
 
@@ -56,7 +54,7 @@ CREATE TABLE `customer` (
   `credit` int(11) NOT NULL DEFAULT '500',
   `role` varchar(20) DEFAULT 'customer',
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,9 +63,34 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1,'lonelort@somewhere.com','1234',500,'customer');
+INSERT INTO `customer` VALUES (1,'lonelort@somewhere.com','1234',490,'customer'),(2,'admin@admin.dk','admin',500,'admin');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `customer_view`
+--
+
+DROP TABLE IF EXISTS `customer_view`;
+/*!50001 DROP VIEW IF EXISTS `customer_view`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `customer_view` AS SELECT 
+ 1 AS `customer_id`,
+ 1 AS `email`,
+ 1 AS `password`,
+ 1 AS `order_id`,
+ 1 AS `order_date`,
+ 1 AS `orderline_id`,
+ 1 AS `qty`,
+ 1 AS `sum`,
+ 1 AS `topping_id`,
+ 1 AS `topping_name`,
+ 1 AS `topping_price`,
+ 1 AS `bottom_id`,
+ 1 AS `bottom_name`,
+ 1 AS `bottom_price`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `order`
@@ -83,7 +106,7 @@ CREATE TABLE `order` (
   PRIMARY KEY (`order_id`),
   KEY `fk_customer_order_idx` (`customer_id`),
   CONSTRAINT `fk_customer_order` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +115,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (1,1,'2020-03-16 09:44:20');
+INSERT INTO `order` VALUES (1,1,'2020-03-16 09:44:20'),(2,1,'2020-03-18 08:56:16'),(3,2,'2020-03-21 15:38:40'),(4,2,'2020-03-21 15:38:43'),(5,2,'2020-03-21 15:38:43'),(6,2,'2020-03-21 15:38:43'),(7,2,'2020-03-21 15:38:43'),(8,1,'2020-03-23 08:09:28'),(9,1,'2020-03-23 08:10:09'),(10,1,'2020-03-23 08:10:15'),(11,1,'2020-03-25 11:48:51');
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +140,7 @@ CREATE TABLE `orderline` (
   CONSTRAINT `fk_orderline_bottom` FOREIGN KEY (`bottom_id`) REFERENCES `bottom` (`bottom_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_orderline_order` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_orderline_topping` FOREIGN KEY (`topping_id`) REFERENCES `topping` (`topping_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +149,7 @@ CREATE TABLE `orderline` (
 
 LOCK TABLES `orderline` WRITE;
 /*!40000 ALTER TABLE `orderline` DISABLE KEYS */;
-INSERT INTO `orderline` VALUES (1,1,3,0,1,2);
+INSERT INTO `orderline` VALUES (3,2,2,0,2,1),(12,11,1,10,2,1);
 /*!40000 ALTER TABLE `orderline` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,6 +177,24 @@ LOCK TABLES `topping` WRITE;
 INSERT INTO `topping` VALUES (1,'Chokolade',5),(2,'Blåbær',5),(3,'Hindbær',5),(4,'Sprød',6),(5,'Jordbær',6),(6,'Rom/Rosiner',7),(7,'Appelsin',8),(8,'Citron',8),(9,'Blå Ost',9);
 /*!40000 ALTER TABLE `topping` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Final view structure for view `customer_view`
+--
+
+/*!50001 DROP VIEW IF EXISTS `customer_view`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `customer_view` AS select `c`.`customer_id` AS `customer_id`,`c`.`email` AS `email`,`c`.`password` AS `password`,`o`.`order_id` AS `order_id`,`o`.`order_date` AS `order_date`,`ol`.`orderline_id` AS `orderline_id`,`ol`.`qty` AS `qty`,`ol`.`sum` AS `sum`,`t`.`topping_id` AS `topping_id`,`t`.`name` AS `topping_name`,`t`.`price` AS `topping_price`,`b`.`bottom_id` AS `bottom_id`,`b`.`name` AS `bottom_name`,`b`.`price` AS `bottom_price` from ((((`customer` `c` join `order` `o` on((`c`.`customer_id` = `o`.`customer_id`))) join `orderline` `ol` on((`o`.`order_id` = `ol`.`order_id`))) join `topping` `t` on((`ol`.`topping_id` = `t`.`topping_id`))) join `bottom` `b` on((`ol`.`bottom_id` = `b`.`bottom_id`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -164,4 +205,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-03-16 10:51:59
+-- Dump completed on 2020-03-26 11:15:09
