@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Her er en testklasse der benytter JUnit til at teste cupcakeprice metoderne.
  * Inden hver test opsættes nogle variabler som kan benyttes i begge testmetoder.
  * Testen indeholder ingen negative test eller test hvor exceptions er forventede idet input til metodekaldene stammer fra et kontrolleret
- * miljø med data fra DB. 
+ * miljø med data fra DB.
  * @author Thor, Hallur, Josef og Frederik
  */
 
