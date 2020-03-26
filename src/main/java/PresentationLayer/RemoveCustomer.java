@@ -9,8 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
-public class RemoveCustomer extends Command {
+/**
+ * Her er en klasse der fjerner kunder.
+ * @author Thor, Hallur, Josef og Frederik
+ */
 
+public class RemoveCustomer extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {

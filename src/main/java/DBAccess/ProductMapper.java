@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Her er vores productmapper som benyttes til at eksekvere kommandoer i databasen.
+ * @author Thor, Hallur, Josef og Frederik
+ */
+
 public class ProductMapper {
 
     public static List<Topping> getTops() {

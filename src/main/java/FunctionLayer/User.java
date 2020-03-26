@@ -1,7 +1,8 @@
 package FunctionLayer;
 
 /**
- * @author Josef
+ * Her er en klasse der laver User objekter.
+ * @author Thor, Hallur, Josef og Frederik
  */
 public class User {
 

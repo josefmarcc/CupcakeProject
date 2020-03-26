@@ -10,6 +10,12 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Her er en klasse der laver tager de elementer en kunde har puttet i indkøbskurven og gemmer dem i lister.
+ * Dette gør at de fremgår på checkout.jsp siden i en table.
+ * @author Thor, Hallur, Josef og Frederik
+ */
+
 public class Basket extends Command {
     private static ArrayList<Cupcake> basketList = new ArrayList<>();
     private static ArrayList<Double> priceList = new ArrayList<>();
@@ -58,11 +64,4 @@ public class Basket extends Command {
         return "../index";
     }
 
-    public static ArrayList<Cupcake> getBasketList() {
-        return basketList;
-    }
-
-    public static void setBasketList(ArrayList<Cupcake> basketList) {
-        Basket.basketList = basketList;
-    }
 }

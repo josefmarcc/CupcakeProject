@@ -7,6 +7,11 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Her er en abstrak klasse der har et map som indeholder de kommandoer programmet kan udføre.
+ * @author Thor, Hallur, Josef og Frederik
+ */
+
 abstract class Command {
 
     private static HashMap<String, Command> commands;

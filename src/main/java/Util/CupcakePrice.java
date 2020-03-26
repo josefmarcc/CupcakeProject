@@ -1,10 +1,12 @@
 package Util;
 
-import FunctionLayer.Bottom;
 import FunctionLayer.Cupcake;
-import FunctionLayer.Topping;
 
 import java.util.List;
+/**
+ * Her er en klasse der beregner cupcakepriser.
+ * @author Thor, Hallur, Josef og Frederik
+ */
 
 public class CupcakePrice {
 

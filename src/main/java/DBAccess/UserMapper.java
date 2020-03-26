@@ -14,12 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The purpose of UserMapper is to...
- *
- * @author Josef
+ * Her er vores usermapper som benyttes til at eksekvere kommandoer i databasen.
+ * @author Thor, Hallur, Josef og Frederik
  */
-public class UserMapper {
 
+public class UserMapper {
 
     public static void createUser(User user) throws LoginSampleException {
         try {

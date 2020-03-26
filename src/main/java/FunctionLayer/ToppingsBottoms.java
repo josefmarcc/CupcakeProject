@@ -4,6 +4,11 @@ import DBAccess.ProductMapper;
 
 import java.util.List;
 
+/**
+ * Her er en klasse der laver lister af bottom og topping objekter hentet fra DB.
+ * @author Thor, Hallur, Josef og Frederik
+ */
+
 public class ToppingsBottoms {
 
     private static List<Topping> toppingsList;

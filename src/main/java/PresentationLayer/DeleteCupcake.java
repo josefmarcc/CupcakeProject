@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
+/**
+ * Her er en klasse der fjerner cupcakes fra kundens indkøbskurv.
+ * @author Thor, Hallur, Josef og Frederik
+ */
+
 public class DeleteCupcake extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {

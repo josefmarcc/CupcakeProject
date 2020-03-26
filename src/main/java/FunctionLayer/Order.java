@@ -1,5 +1,10 @@
 package FunctionLayer;
 
+/**
+ * Her er en klasse der laver order objekter.
+ * @author Thor, Hallur, Josef og Frederik
+ */
+
 public class Order {
 
     private final int id;

@@ -10,7 +10,10 @@ import javax.servlet.http.HttpSession;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/**
+ * Her er en klasse der laver en liste af orderline, som benyttes til at vise alle ordrelines på admin siden.
+ * @author Thor, Hallur, Josef og Frederik
+ */
 
 public class OrderList extends Command {
 

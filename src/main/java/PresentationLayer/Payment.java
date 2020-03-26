@@ -2,7 +2,6 @@ package PresentationLayer;
 
 import DBAccess.ProductMapper;
 import FunctionLayer.*;
-import sun.rmi.runtime.Log;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -10,12 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
+/**
+ * Her er en klasse der muliggør betaling, en kundes balance ændres og opdateres i DB.
+ * Kurven tømmes for data og samlet pris sættes til nul.
+ * @author Thor, Hallur, Josef og Frederik
+ */
+
 public class Payment extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         HttpSession session = request.getSession();
         ServletContext context = request.getSession().getServletContext();
-
 
         User user = (User) context.getAttribute("user");
         if(user == null){
@@ -52,7 +56,7 @@ public class Payment extends Command {
                 ArrayList<Cupcake> basketlist = (ArrayList<Cupcake>) session.getAttribute("basketlist");
                 basketlist.clear();
                 session.setAttribute("basketlist", basketlist);
-                session.setAttribute("basketprice", 0);
+                session.setAttribute("basketprice", null);
 
             } else {
                 String rejected = "DER ER ET PROBLEM MED DIN ØKONOMISKE SITUATION";

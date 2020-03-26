@@ -8,6 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * Her er en klasse der benyttes til at oprette en bruger og denne gemmes i databasen.
+ * Admins skal oprettes direkte i databasen for at have admin rettigheder.
+ * @author Thor, Hallur, Josef og Frederik
+ */
+
 public class Register extends Command {
 
     @Override

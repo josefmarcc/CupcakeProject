@@ -4,12 +4,17 @@ import DBAccess.ProductMapper;
 
 import java.util.ArrayList;
 
+/**
+ * Her er en klasse der laver orderline objekter.
+ * @author Thor, Hallur, Josef og Frederik
+ */
+
 public class Orderline {
 
 
     private int orderlineid, orderid,qty,sum,toppingid,bottomid;
-
     public static ArrayList<Orderline> orderList;
+
     public static void initLists() {
         if (orderList == null) {
             orderList = LogicFacade.getOrderList();

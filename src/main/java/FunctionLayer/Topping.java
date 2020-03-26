@@ -1,5 +1,10 @@
 package FunctionLayer;
 
+/**
+ * Her er en klasse der laver topping objekter.
+ * @author Thor, Hallur, Josef og Frederik
+ */
+
 public class Topping {
 
     private int id;

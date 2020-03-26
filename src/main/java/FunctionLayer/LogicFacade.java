@@ -10,6 +10,11 @@ import java.util.List;
  * The purpose of LogicFacade is to...
  *
  * @author kasper
+ *
+ *
+ *  * Vi har udvidet Kaspers skabelon med yderlige metoder for at den passer til dette projekt.
+ *  * @author Thor, Hallur, Josef og Frederik
+ *
  */
 public class LogicFacade {
 

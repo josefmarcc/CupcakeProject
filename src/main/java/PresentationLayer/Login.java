@@ -8,9 +8,8 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 /**
- The purpose of Login is to...
-
- @author kasper
+ * Her er en klasse der gør at kunden kan logge ind, hvis det er en admin der logger ind viderestilles administratoren til admin.jsp.
+ * @author Thor, Hallur, Josef og Frederik
  */
 public class Login extends Command {
 

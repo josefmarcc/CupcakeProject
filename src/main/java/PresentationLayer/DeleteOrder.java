@@ -7,6 +7,11 @@ import FunctionLayer.Order;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Her er en klasse der fjerner en ordre fra databasen når der klikkes på knappen i table på JSP siden.
+ * @author Thor, Hallur, Josef og Frederik
+ */
+
 public class DeleteOrder extends Command{
 
     @Override

@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+/**
+ * Her er en klasse der tilføjer credit til en brugers balance i databasen.
+ * @author Thor, Hallur, Josef og Frederik
+ */
+
 public class AddCredit extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {

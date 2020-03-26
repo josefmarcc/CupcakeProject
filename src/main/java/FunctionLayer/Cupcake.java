@@ -1,5 +1,10 @@
 package FunctionLayer;
 
+/**
+ * Her er en klasse der laver cupcake objekter baseret på toppe og bottom objekter.
+ * @author Thor, Hallur, Josef og Frederik
+ */
+
 public class Cupcake {
 
     private Topping top;

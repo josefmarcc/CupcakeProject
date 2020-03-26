@@ -1,5 +1,9 @@
 package FunctionLayer;
 
+/**
+ * Her er en klasse der laver bottom objekter.
+ * @author Thor, Hallur, Josef og Frederik
+ */
 public class Bottom {
 
     private int id;
