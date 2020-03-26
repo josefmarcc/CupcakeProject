@@ -48,9 +48,11 @@ public class Payment extends Command {
                 user.setCredit(updatedCredit);
                 session.setAttribute("credit", user.showBalance());
 
+                //Tømmer arraylist + sætter pris til 0.
                 ArrayList<Cupcake> basketlist = (ArrayList<Cupcake>) session.getAttribute("basketlist");
                 basketlist.clear();
                 session.setAttribute("basketlist", basketlist);
+                session.setAttribute("basketprice", 0);
 
             } else {
                 String rejected = "DER ER ET PROBLEM MED DIN ØKONOMISKE SITUATION";
