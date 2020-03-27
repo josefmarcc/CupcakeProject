@@ -21,13 +21,13 @@
                     <form name="register" action="FrontController" method="POST">
                         <input type="hidden" name="taget" value="register">
                         Email:<br>
-                        <input type="text" name="email" class="form-control" value="someone@nowhere.com">
+                        <input type="text" name="email" class="form-control" placeholder="someone@nowhere.com">
                         <br>
                         Password:<br>
-                        <input type="password" name="password1" class="form-control" value="sesam">
+                        <input type="password" name="password1" class="form-control" placeholder="sesam">
                         <br>
                         Retype Password:<br>
-                        <input type="password" name="password2" class="form-control" value="sesam">
+                        <input type="password" name="password2" class="form-control" placeholder="sesam">
                         <br>
                         <input type="submit" class="btn btn-danger btn-style mt-2" value="Registrer dig her">
                     </form>
