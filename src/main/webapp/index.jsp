@@ -118,7 +118,7 @@
 
                 <button type="input" class="btn btn-danger btn-style mt-2 mr-4">Læg i kurv</button>
                 <div class="overskrift-size mt-5">
-                    Cupcakens pris: ${sessionScope.price} kr
+                    Cupcakens pris: ${requestScope.price} kr
                 </div>
 
                 <div class="alert alert-success mt-4 <c:if test = "${empty requestScope.message}">d-none</c:if> "

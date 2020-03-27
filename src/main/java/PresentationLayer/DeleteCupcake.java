@@ -1,9 +1,8 @@
 package PresentationLayer;
 
-import FunctionLayer.Bottom;
 import FunctionLayer.Cupcake;
 import FunctionLayer.LoginSampleException;
-import FunctionLayer.Topping;
+import Util.CupcakePrice;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,14 +21,21 @@ public class DeleteCupcake extends Command {
         ArrayList<Cupcake> basketList = (ArrayList<Cupcake>) session.getAttribute("basketlist");
 
         String cupcakeToRemove =  request.getParameter("deletecupcakebutton");
+        ArrayList<Integer> qtyList = (ArrayList<Integer>) session.getAttribute("qtyList");
+        ArrayList<Integer> priceList = (ArrayList<Integer>) session.getAttribute("priceList");
 
         for(int i = 0; i < basketList.size(); i++) {
             if(cupcakeToRemove.equals(basketList.get(i).toString())) {
                 basketList.remove(i);
+                qtyList.remove(i);
+                priceList.remove(i);
             }
         }
 
+        session.setAttribute("priceList", priceList);
+        session.setAttribute("qtyList", qtyList);
         session.setAttribute("basketlist", basketList);
+        session.setAttribute("basketprice", new CupcakePrice().calculateBasketPrice(basketList,qtyList));
 
         return "checkout";
 
