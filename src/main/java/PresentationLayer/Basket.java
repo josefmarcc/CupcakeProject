@@ -50,8 +50,8 @@ public class Basket extends Command {
         priceList.add(price);
 
         HttpSession session = request.getSession();
-        request.setAttribute("qty", qty);
-        request.setAttribute("price", price);
+        session.setAttribute("qty", qty);
+        session.setAttribute("price", price);
         session.setAttribute("priceList", priceList);
         session.setAttribute("qtyList", qtyList);
         session.setAttribute("basketlist", basketList);
