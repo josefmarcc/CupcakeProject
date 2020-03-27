@@ -2,13 +2,11 @@ package PresentationLayer;
 
 import FunctionLayer.*;
 import Util.CupcakePrice;
-import sun.rmi.runtime.Log;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Her er en klasse der laver tager de elementer en kunde har puttet i indkøbskurven og gemmer dem i lister.
