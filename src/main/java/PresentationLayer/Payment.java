@@ -43,7 +43,7 @@ public class Payment extends Command {
                 int bottom_id = bot.getId();
 
                 LogicFacade.addToBasket(orderId, qty, (int) sum, topping_id, bottom_id);
-                String accepted = "DIN ORDRER ER BLEVET BETALT OG KAN HENTES OM 10 MIN";
+                String accepted = "DIN ORDRER, MED ID'ET " +  orderId + ", ER BLEVET BETALT OG KAN HENTES OM 10 MIN.";
                 request.setAttribute("message", accepted);
 
                 int updatedCredit = (int) (user.getCredit() - totalPrice);
@@ -59,7 +59,7 @@ public class Payment extends Command {
                 session.setAttribute("basketprice", null);
 
             } else {
-                String rejected = "DER ER ET PROBLEM MED DIN ØKONOMISKE SITUATION";
+                String rejected = "DER ER ET PROBLEM. DU PRØVER AT KØBE FOR " + totalPrice + " KR, BELØBET ER HØJERE END DIN KREDIT PÅ: " + user.getCredit() + " KR";
                 request.setAttribute("message", rejected);
             }
         }
