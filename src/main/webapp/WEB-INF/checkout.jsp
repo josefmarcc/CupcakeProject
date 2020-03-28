@@ -22,7 +22,6 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <!-- https://www.codejava.net/java-ee/jsp/how-to-list-records-in-a-database-table-using-jsp-and-jstl -->
                         <c:forEach var="cupcake" items="${sessionScope.basketlist}" varStatus="loop">
                     <tr>
                         <td>

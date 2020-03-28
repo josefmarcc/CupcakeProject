@@ -16,6 +16,7 @@ import java.util.ArrayList;
  */
 
 public class Payment extends Command {
+
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
         HttpSession session = request.getSession();
@@ -55,7 +56,7 @@ public class Payment extends Command {
                 //Tømmer arraylister som har med ordren at gøre + sætter pris til 0.
                 ArrayList<Cupcake> basketlist = (ArrayList<Cupcake>) session.getAttribute("basketlist");
                 ArrayList<Integer> qtyList = (ArrayList<Integer>) session.getAttribute("qtyList");
-                ArrayList<Integer> priceList = (ArrayList<Integer>) session.getAttribute("priceList");
+                ArrayList<Double> priceList = (ArrayList<Double>) session.getAttribute("priceList");
 
                 basketlist.clear();
                 qtyList.clear();
@@ -64,8 +65,6 @@ public class Payment extends Command {
                 session.setAttribute("qtyList", qtyList);
                 session.setAttribute("priceList", priceList);
                 session.setAttribute("basketprice", null);
-                session.setAttribute("user", null);
-
 
             } else {
                 String rejected = "DER ER ET PROBLEM. DU PRØVER AT KØBE FOR " + totalPrice + " KR, BELØBET ER HØJERE END DIN KREDIT PÅ: " + user.getCredit() + " KR";

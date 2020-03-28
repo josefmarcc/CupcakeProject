@@ -1,22 +1,33 @@
-<%@ page import="FunctionLayer.ToppingsBottoms" %>
+<%@ page import="FunctionLayer.GenerateLists" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="FunctionLayer.Cupcake" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
 <%!
     @Override
     public void jspInit() {
-        //Fyr kode af til init. F.eks befolke datastruktur/lister etc.
-        ToppingsBottoms.initLists();
+        GenerateLists.initLists();
     }
 %>
 <%
     if (request.getServletContext().getAttribute("toppings") == null) {
-        request.getServletContext().setAttribute("toppings", ToppingsBottoms.getToppingsList());
+        request.getServletContext().setAttribute("toppings", GenerateLists.getToppingsList());
     }
     if (request.getServletContext().getAttribute("bottoms") == null) {
-        request.getServletContext().setAttribute("bottoms", ToppingsBottoms.getBottomsList());
+        request.getServletContext().setAttribute("bottoms", GenerateLists.getBottomsList());
+    }
+    if (session.getAttribute("priceList") == null) {
+        session.setAttribute("priceList", GenerateLists.getPriceList());
+    }
+    if (session.getAttribute("qtyList") == null) {
+        session.setAttribute("qtyList", GenerateLists.getQtyList());
+    }
+    if (session.getAttribute("basketList") == null) {
+        session.setAttribute("basketList", GenerateLists.getBasketList());
     }
 %>
+
 <%@include file="include/header.inc" %>
 
 <div class="row">

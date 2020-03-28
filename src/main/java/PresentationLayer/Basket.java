@@ -15,10 +15,13 @@ import java.util.ArrayList;
  */
 
 public class Basket extends Command {
-
+   // private static ArrayList<Cupcake> basketList = new ArrayList<>();
+   // private static ArrayList<Double> priceList = new ArrayList<>();
+   // private static ArrayList<Integer> qtyList = new ArrayList<>();
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+        HttpSession session = request.getSession();
 
         int qty = Integer.parseInt(request.getParameter("qty"));
         String topping_name = request.getParameter("toppingname");
@@ -43,14 +46,13 @@ public class Basket extends Command {
         request.setAttribute("message","DU HAR LAGT DIN CUPCAKE(S) I KURVEN");
 
         double price = new CupcakePrice().calculateCupcakePrice(cupcake, qty);
-        ArrayList<Cupcake> basketList = new ArrayList<>();
-        ArrayList<Double> priceList = new ArrayList<>();
-        ArrayList<Integer> qtyList = new ArrayList<>();
+        ArrayList<Cupcake> basketList = (ArrayList<Cupcake>) session.getAttribute("basketList");
+        ArrayList<Double> priceList = (ArrayList<Double>) session.getAttribute("priceList");
+        ArrayList<Integer> qtyList = (ArrayList<Integer>) session.getAttribute("qtyList");
         basketList.add(cupcake);
         qtyList.add(qty);
         priceList.add(price);
 
-        HttpSession session = request.getSession();
         session.setAttribute("qty", qty);
         session.setAttribute("price", price);
         session.setAttribute("priceList", priceList);
@@ -59,6 +61,7 @@ public class Basket extends Command {
         session.setAttribute("basketprice", new CupcakePrice().calculateBasketPrice(basketList,qtyList));
         session.setAttribute("top", topping);
         session.setAttribute("bot",bottom);
+
 
         return "../index";
     }
