@@ -52,11 +52,19 @@ public class Payment extends Command {
                 user.setCredit(updatedCredit);
                 session.setAttribute("credit", user.showBalance());
 
-                //Tømmer arraylist + sætter pris til 0.
+                //Tømmer arraylister som har med ordren at gøre + sætter pris til 0.
                 ArrayList<Cupcake> basketlist = (ArrayList<Cupcake>) session.getAttribute("basketlist");
+                ArrayList<Integer> qtyList = (ArrayList<Integer>) session.getAttribute("qtyList");
+                ArrayList<Integer> priceList = (ArrayList<Integer>) session.getAttribute("priceList");
+
                 basketlist.clear();
+                qtyList.clear();
+                priceList.clear();
                 session.setAttribute("basketlist", basketlist);
+                session.setAttribute("qtyList", qtyList);
+                session.setAttribute("priceList", priceList);
                 session.setAttribute("basketprice", null);
+
 
             } else {
                 String rejected = "DER ER ET PROBLEM. DU PRØVER AT KØBE FOR " + totalPrice + " KR, BELØBET ER HØJERE END DIN KREDIT PÅ: " + user.getCredit() + " KR";
