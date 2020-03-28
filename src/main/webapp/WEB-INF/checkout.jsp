@@ -47,7 +47,7 @@
         <div class="col-lg-3">
             <div class="overskrift-size ">
                 Total pris:
-            <p><span class="price"><b>${sessionScope.basketprice} kr,-</b></span></p>
+            <p><span class="price"><b>${sessionScope.basketprice} kr</b></span></p>
             </div>
             <form action="FrontController" method="post" name="payment">
                 <input type="hidden" name="taget" value="payment">
