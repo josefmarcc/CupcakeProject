@@ -12,9 +12,9 @@ public class GenerateLists {
 
     private static List<Topping> toppingsList;
     private static List<Bottom> bottomsList;
-    private static ArrayList<Double> priceList = new ArrayList<>();
-    private static ArrayList<Integer> qtyList = new ArrayList<>();
-    private static ArrayList<Cupcake> basketList = new ArrayList<>();
+    private ArrayList<Double> priceList = new ArrayList<>();
+    private ArrayList<Integer> qtyList = new ArrayList<>();
+    private  ArrayList<Cupcake> basketList = new ArrayList<>();
 
     public static void initLists(){
         if(toppingsList == null){
@@ -23,6 +23,9 @@ public class GenerateLists {
         if(bottomsList == null){
             bottomsList = LogicFacade.getBottoms();
         }
+    }
+
+    public void initPayList(){
         if(priceList == null){
             priceList = new ArrayList<>();
         }
@@ -42,15 +45,15 @@ public class GenerateLists {
         return bottomsList;
     }
 
-    public static ArrayList<Double> getPriceList() {
+    public ArrayList<Double> getPriceList() {
         return priceList;
     }
 
-    public static ArrayList<Integer> getQtyList() {
+    public ArrayList<Integer> getQtyList() {
         return qtyList;
     }
 
-    public static ArrayList<Cupcake> getBasketList() {
+    public ArrayList<Cupcake> getBasketList() {
         return basketList;
     }
 

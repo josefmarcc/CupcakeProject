@@ -8,6 +8,7 @@
     @Override
     public void jspInit() {
         GenerateLists.initLists();
+        new GenerateLists().initPayList();
     }
 %>
 <%
@@ -18,13 +19,13 @@
         request.getServletContext().setAttribute("bottoms", GenerateLists.getBottomsList());
     }
     if (session.getAttribute("priceList") == null) {
-        session.setAttribute("priceList", GenerateLists.getPriceList());
+        session.setAttribute("priceList", new GenerateLists().getPriceList());
     }
     if (session.getAttribute("qtyList") == null) {
-        session.setAttribute("qtyList", GenerateLists.getQtyList());
+        session.setAttribute("qtyList", new GenerateLists().getQtyList());
     }
     if (session.getAttribute("basketList") == null) {
-        session.setAttribute("basketList", GenerateLists.getBasketList());
+        session.setAttribute("basketList", new GenerateLists().getBasketList());
     }
 %>
 
