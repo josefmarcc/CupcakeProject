@@ -22,7 +22,4 @@ public class CustomerList {
         return customerList;
     }
 
-    public static void updateCustomerList(){
-        LogicFacade.getCustomerList();
-    }
 }
