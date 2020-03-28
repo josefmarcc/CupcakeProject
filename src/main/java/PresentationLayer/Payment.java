@@ -64,6 +64,7 @@ public class Payment extends Command {
                 session.setAttribute("qtyList", qtyList);
                 session.setAttribute("priceList", priceList);
                 session.setAttribute("basketprice", null);
+                session.setAttribute("user", null);
 
 
             } else {
