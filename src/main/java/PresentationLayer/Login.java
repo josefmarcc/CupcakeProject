@@ -10,15 +10,23 @@ import javax.servlet.http.HttpSession;
 
 /**
  * Her er en klasse der gør at kunden kan logge ind, hvis det er en admin der logger ind viderestilles administratoren til admin.jsp.
+ *
  * @author Thor, Hallur, Josef og Frederik
  */
 public class Login extends Command {
-
+    /**
+     * @param request - den aktuelle HTTP request
+     * @param response - den aktuelle HTTP servlet response
+     * @return - en string, som er den side der skal returneres når metoden er kort.
+     * Denne sendes til frontcontrolleren, hvor der tilsættes den rette sti (WEB-INF/ ... )
+     * @throws - LoginSampleException, en hjemmelavet exception som propageres (VI KASTER DEN BARE VÆK) og ikke håndteres.
+     * @version - Færdige version for cupcake projektet.
+     */
     @Override
-    String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
-        String email = request.getParameter( "email" );
-        String password = request.getParameter( "password" );
-        User user = LogicFacade.login( email, password );
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        User user = LogicFacade.login(email, password);
 
         HttpSession session = request.getSession();
 
@@ -27,11 +35,11 @@ public class Login extends Command {
         session.getServletContext().setAttribute("user", user);
 
 
-
-        switch (email){
+        switch (email) {
             case "admin":
                 return "admin";
-            default: return "../index";
+            default:
+                return "../index";
         }
 
     }

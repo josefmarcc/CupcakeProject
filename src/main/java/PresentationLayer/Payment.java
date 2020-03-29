@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * Her er en klasse der muliggør betaling, en kundes balance ændres og opdateres i DB.
  * Kurven tømmes for data og samlet pris sættes til nul.
  * @author Thor, Hallur, Josef og Frederik
+ *
  */
 
 public class Payment extends Command {
