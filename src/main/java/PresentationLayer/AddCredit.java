@@ -14,15 +14,21 @@ import javax.servlet.http.HttpServletResponse;
 public class AddCredit extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
+        try {
+            String email = request.getParameter("email");
+            int saldo = Integer.parseInt(request.getParameter("saldo"));
 
-        String email = request.getParameter("email");
-        int saldo = Integer.parseInt(request.getParameter("saldo"));
+            LogicFacade.addCredit(email, saldo);
 
-        LogicFacade.addCredit(email, saldo);
+            request.getServletContext().setAttribute("customerList", LogicFacade.getCustomerList());
 
-        request.getServletContext().setAttribute("customerList",  LogicFacade.getCustomerList());
-
+        } catch (NumberFormatException e) {
+            String rejected = "Hov, sørg for at indtaste gyldigt input";
+            request.setAttribute("message", rejected);
+        }
         return "admin";
 
     }
+
+
 }

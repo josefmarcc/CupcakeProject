@@ -84,6 +84,10 @@
                     </button>
                 </form>
             </div>
+            <div class="alert alert-success mt-4 <c:if test = "${empty requestScope.message}">d-none</c:if> "
+                 role="alert">
+                ${requestScope.message}
+            </div>
 
         </div>
         <div class="col-lg-5">
