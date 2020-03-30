@@ -6,7 +6,6 @@ import java.util.List;
 
 /**
  * Her er en klasse der beregner cupcakepriser.
- *
  * @author Thor, Hallur, Josef og Frederik
  */
 
