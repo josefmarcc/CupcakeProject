@@ -1,6 +1,5 @@
 package PresentationLayer;
 
-import DBAccess.ProductMapper;
 import FunctionLayer.*;
 
 import javax.servlet.ServletContext;
@@ -49,7 +48,7 @@ public class Payment extends Command {
                 request.setAttribute("message", accepted);
 
                 int updatedCredit = (int) (user.getCredit() - totalPrice);
-                ProductMapper.updateCredit(email, updatedCredit);
+                LogicFacade.updateCredit(email, updatedCredit);
 
                 user.setCredit(updatedCredit);
                 session.setAttribute("credit", user.showBalance());

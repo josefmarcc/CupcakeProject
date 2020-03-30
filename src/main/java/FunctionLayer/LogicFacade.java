@@ -73,4 +73,8 @@ public class LogicFacade {
     public static int getOrderId(int customerId){
         return ProductMapper.getOrderId(customerId);
     }
+
+    public static void updateCredit(String email, int updatedCredit){
+        ProductMapper.updateCredit(email, updatedCredit);
+    }
 }
