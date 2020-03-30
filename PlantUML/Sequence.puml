@@ -4,6 +4,7 @@ boundary Checkout.jsp
 participant FrontController
 participant Command
 participant Payment
+participant LogicFacade
 participant ProductMapper
 database CupcakeDatabase
 
@@ -14,6 +15,7 @@ FrontController -> Command: getCommand
 Command -> FrontController: returnCommand
 FrontController -> Payment: executeCommand
 Payment ->  ProductMapper: execute()
+LogicFacade -> ProductMapper: updateCredit()
 ProductMapper -> CupcakeDatabase: updateCreditQuery()
 CupcakeDatabase -> FrontController: OK
 FrontController -> Checkout.jsp: forward
