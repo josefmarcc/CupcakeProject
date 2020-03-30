@@ -15,9 +15,6 @@ import java.util.ArrayList;
  */
 
 public class Basket extends Command {
-   // private static ArrayList<Cupcake> basketList = new ArrayList<>();
-   // private static ArrayList<Double> priceList = new ArrayList<>();
-   // private static ArrayList<Integer> qtyList = new ArrayList<>();
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
