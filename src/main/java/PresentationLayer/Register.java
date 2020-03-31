@@ -1,9 +1,9 @@
 package PresentationLayer;
 
-import DBAccess.UserMapper;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.User;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -25,7 +25,6 @@ public class Register extends Command {
            User user = LogicFacade.createUser( email, password1 );
            LogicFacade.login(email,password1);
            HttpSession session = request.getSession();
-            //TODO FIX, den ved godt hvad credit er, men få det frem uden setCredit()
            user.setCredit(500);
            session.setAttribute("email",email);
            session.setAttribute("credit", user.showBalance());
