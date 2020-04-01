@@ -1,0 +1,28 @@
+@startuml
+Title Køb Cupcake
+actor Buyer
+boundary Checkout.jsp
+participant FrontController
+participant Command
+participant Payment
+participant LogicFacade
+participant ProductMapper
+database CupcakeDatabase
+
+
+Buyer -> Checkout.jsp : Betal
+Checkout.jsp -> FrontController: doPost()
+FrontController -> FrontController: processRequest()
+FrontController -> Command: from()
+Command --> FrontController: Object Payment
+FrontController -> Payment: execute()
+Payment -> LogicFacade: createOrder()\nupdateCredit()
+LogicFacade -> ProductMapper: updateCredit()
+ProductMapper -> CupcakeDatabase: executeQuery()
+CupcakeDatabase --> ProductMapper: OK
+ProductMapper --> LogicFacade: OK
+LogicFacade --> Payment: OK
+Payment --> FrontController: OK
+FrontController --> Checkout.jsp: forward()
+Checkout.jsp -> Buyer: OK besked
+@enduml
